@@ -1,5 +1,7 @@
 const linebot = require('linebot');
 const express = require('express');
+const firebase = require("firebase");
+
 
 const bot = linebot({
   channelId: process.env.CHANNEL_ID,
@@ -27,10 +29,13 @@ app.post('/linewebhook', linebotParser);
 
 
 bot.on('message', function (event) {
-    event.reply(event.message.text).then(function (data) {
-        console.log('Success', data);
-    }).catch(function (error) {
-        console.log('Error', error);
+    firebase.database().ref('users/' + lineId).set({
+        deviceId: 0,
+        plantType: 0,
+        name : 0,
+        dht : 0,
+        temperature : 0,
+        steps : 0
     });
 });
 
