@@ -34,15 +34,35 @@ bot.on('message', function (event) {
     firebase.database().ref(`users/${lineId}/steps`).on('value', async function (snapshot) {
         if(snapshot.exists()) 
         {
-            // step = await snapshot.val()
-            event.reply('exist')
+                step = await snapshot.val();
+                if (qAndAStep === 0 ) {
+                    await event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
+                } else if(qAndAStep === 1) {
+                    event.reply('可以告訴我你的植物種類嗎？');
+                    updateData(lineId, "deviceId", event.message.text);
+                } else if(qAndAStep === 2) {
+                    event.reply('謝謝！我們又邁進了一步！！可以讓我知道要怎麼稱呼你嗎？');
+                    updateData(lineId, "plantType", event.message.text);
+                } else if(qAndAStep === 3) {
+                    event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!');
+                    updateData(lineId, "name", event.message.text);
+                } else if(qAndAStep === 99) {
+                    event.reply('99')
+                }
 
         }
         else 
         {
             initData(lineId);
-            event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
         }
+ 
+        updateData(lineId, "steps" , step+1)
+          
+        if(qAndAStep > 3) 
+        {
+            updateData(lineId, "steps", 99)
+        };
+
     });
 });
 
