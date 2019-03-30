@@ -28,7 +28,7 @@ app.post('/linewebhook', linebotParser);
 
 
 bot.on('message', function (event) {
-    firebase.database().ref('users/' + lineId).set({
+    firebase.database().ref('users/' + event.source.userId).set({
         deviceId: 0,
         plantType: 0,
         name : 0,
