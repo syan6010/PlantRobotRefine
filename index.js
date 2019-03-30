@@ -30,8 +30,24 @@ app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
     let lineId = event.source.userId
-    initData(lineId)
+    let step = 0
+    firebase.database().ref(`users/${lineId}/steps`).on('value', async function (snapshot) {
+        if(snapshot.exists()) 
+        {
+            // step = await snapshot.val()
+            event.reply('exist')
+
+        }
+        else 
+        {
+            initData(lineId);
+            event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
+        }
+    });
 });
+
+
+
 
 
 app.listen(process.env.PORT || 80, function () {
