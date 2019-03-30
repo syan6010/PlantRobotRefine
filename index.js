@@ -29,7 +29,15 @@ app.post('/linewebhook', linebotParser);
 
 
 bot.on('message', function (event) {
-    event.reply('hello')
+    firebase.database().ref('users/' + lineId).set({
+        deviceId: 0,
+        plantType: 0,
+        name : 0,
+        dht : 0,
+        temperature : 0,
+        steps : 0
+    });
+    
 });
 
 
