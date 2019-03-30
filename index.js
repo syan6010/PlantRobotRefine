@@ -36,28 +36,29 @@ bot.on('message', function (event) {
         firebase.database().ref(`users/${lineId}/steps`).on('value', async function (snapshot) {
             if(snapshot.exists()) {
                 step = snapshot.val();
-                if (step === 0 ) {
-                    event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
-                } else if(step === 1) {
-                    event.reply('可以告訴我你的植物種類嗎？');
-                    updateData(lineId, "deviceId", msg);
-                } else if(step === 2) {
-                    event.reply('謝謝！我們又邁進了一步！！可以讓我知道要怎麼稱呼你嗎？');
-                    updateData(lineId, "plantType", msg);
-                } else if(step === 3) {
-                    event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!');
-                    updateData(lineId, "name", msg);
-                } else if(qAndAStep === 99) {
-                    event.reply('i cant do this')
-                }
+                event.reply(step);
+                // if (step === 0 ) {
+                //     event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
+                // } else if(step === 1) {
+                //     event.reply('可以告訴我你的植物種類嗎？');
+                //     updateData(lineId, "deviceId", msg);
+                // } else if(step === 2) {
+                //     event.reply('謝謝！我們又邁進了一步！！可以讓我知道要怎麼稱呼你嗎？');
+                //     updateData(lineId, "plantType", msg);
+                // } else if(step === 3) {
+                //     event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!');
+                //     updateData(lineId, "name", msg);
+                // } else if(qAndAStep === 99) {
+                //     event.reply('i cant do this')
+                // }
             } 
             else {
                 initData(lineId);
-                qAndAStep = 0;
+                step = 0;
             }
         });
          
-        updateData(lineId, "steps" ,step+1);
+        updateData(lineId, "steps" , step+1);
             
         if(qAndAStep > 3) {
             updateData(lineId, "steps", 99);
