@@ -32,8 +32,7 @@ bot.on('message', function (event) {
     let lineId = event.source.userId
     let step = 0
     firebase.database().ref(`users/${lineId}/steps`).on('value', async function (snapshot) {
-        if(snapshot.exists()) 
-        {
+        if(snapshot.exists()) {
                 step = await snapshot.val();
                 if (step === 0 ) {
                     await event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
@@ -51,20 +50,17 @@ bot.on('message', function (event) {
                 }
 
         }
-        else 
-        {
+        else {
             event.reply('hahaah')
             initData(lineId);
         }
- 
-        updateData(lineId, "steps" , step+1)
-          
-        if(qAndAStep > 3) 
-        {
-            updateData(lineId, "steps", 99)
-        };
-
     });
+
+    updateData(lineId, "steps" ,qAndAStep+1);
+          
+    if(qAndAStep > 3) {
+        updateData(lineId, "steps", 99);
+    };
 });
 
 
