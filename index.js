@@ -29,16 +29,8 @@ app.post('/linewebhook', linebotParser);
 
 
 bot.on('message', function (event) {
-    let lineId = event.source.userId;
-    firebase.database().ref('users/' + lineId).set({
-        deviceId: 0,
-        plantType: 0,
-        name : 0,
-        dht : 0,
-        temperature : 0,
-        steps : 0
-    });
-    
+    let lineId = event.source.userId
+    initData(lineId)
 });
 
 
@@ -51,6 +43,18 @@ let updateData = (lineId, postKey, postData) => {
     updates[`users/${lineId}/${postKey}`] = postData;
   
     return firebase.database().ref().update(updates);
+}
+
+
+let initData = (lineId) => {
+    firebase.database().ref('users/' + lineId).set({
+        deviceId: 0,
+        plantType: 0,
+        name : 0,
+        dht : 0,
+        temperature : 0,
+        steps : 0
+    });
 }
 
 
