@@ -10,12 +10,12 @@ const bot = linebot({
 });
 
 var config = {
-    apiKey: "AIzaSyAH8TrJyIm1rc5Pf4Kv1QK1e196Btft_a8",
-    authDomain: "plantrobotrefine.firebaseapp.com",
-    databaseURL: "https://plantrobotrefine.firebaseio.com",
-    projectId: "plantrobotrefine",
-    storageBucket: "plantrobotrefine.appspot.com",
-    messagingSenderId: "686852886099"
+    apiKey: process.env.apiKey,
+    authDomain: process.env.authDomain,
+    databaseURL: process.env.databaseURL,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId
   };
 
 firebase.initializeApp(config);
