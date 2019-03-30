@@ -84,13 +84,23 @@ let updateData = (lineId, postKey, postData) => {
 
 let initData = (lineId) => {
     firebase.database().ref('users/' + lineId).set({
-        deviceId: 0,
-        plantType: 0,
+        PlantName: 0,
+        WebId: 0,
         name : 0,
         dht : 0,
         temperature : 0,
         steps : 0
     });
+
+    firebase.database().ref('users/' + lineId).set({
+        PlantName: 0,
+        WebId: 0,
+        name : 0,
+        dht : 0,
+        temperature : 0,
+        steps : 0
+    });
+    
 }
 
 
