@@ -53,6 +53,7 @@ bot.on('message', function (event) {
         }
         else 
         {
+            event.reply('hahaah')
             initData(lineId);
         }
  
