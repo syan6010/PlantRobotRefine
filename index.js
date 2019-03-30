@@ -9,16 +9,16 @@ const bot = linebot({
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
-// var config = {
-//     apiKey: "AIzaSyAH8TrJyIm1rc5Pf4Kv1QK1e196Btft_a8",
-//     authDomain: "plantrobotrefine.firebaseapp.com",
-//     databaseURL: "https://plantrobotrefine.firebaseio.com",
-//     projectId: "plantrobotrefine",
-//     storageBucket: "plantrobotrefine.appspot.com",
-//     messagingSenderId: "686852886099"
-// };
+var config = {
+    apiKey: "AIzaSyAH8TrJyIm1rc5Pf4Kv1QK1e196Btft_a8",
+    authDomain: "plantrobotrefine.firebaseapp.com",
+    databaseURL: "https://plantrobotrefine.firebaseio.com",
+    projectId: "plantrobotrefine",
+    storageBucket: "plantrobotrefine.appspot.com",
+    messagingSenderId: "686852886099"
+  };
 
-// firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 const app = express();
 
