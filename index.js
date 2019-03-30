@@ -88,16 +88,6 @@ let initData = (lineId) => {
         temperature : 0,
         steps : 0
     });
-
-    firebase.database().ref('users/' + lineId).set({
-        PlantName: 0,
-        WebId: 0,
-        name : 0,
-        dht : 0,
-        temperature : 0,
-        steps : 0
-    });
-    
 }
 
 
