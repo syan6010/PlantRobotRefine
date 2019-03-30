@@ -37,61 +37,62 @@ bot.on('message', function (event) {
   
           firebase.database().ref(`users/${lineId}/steps`).on('value', async function (snapshot) {
               if(snapshot.exists()) {
-                  qAndAStep = snapshot.val();
-                  if (qAndAStep === 0 ) {
-                      await event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
-                  } else if(qAndAStep === 1) {
-                      event.reply('可以告訴我你的植物種類嗎？');
-                      updateData(lineId, "deviceId", event.message.text);
-                  } else if(qAndAStep === 2) {
-                      event.reply('謝謝！我們又邁進了一步！！可以讓我知道要怎麼稱呼你嗎？');
-                      updateData(lineId, "plantType", event.message.text);
-                  } else if(qAndAStep === 3) {
-                      event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!');
-                      updateData(lineId, "name", event.message.text);
-                  } else if(qAndAStep === 99) {
-                      switch (event.message.text) {
-                          case 'help' :
-                              event.reply({
-                                  type: 'image',
-                                  originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
-                                  previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
-                              });
-                              break;
-                          case 'ok' :
-                              firebase.database().ref(`users/${lineId}/plantType`).once('value', function (snapshot) {
-                                  var data = snapshot.val();
-                                  switch (data) {
-                                      case '薄荷' :
-                                          return event.reply(['Line 1', {
-                                              type: 'template',
-                                              altText: 'Buttons alt text',
-                                              template: {
-                                                  type: 'buttons',
-                                                  thumbnailImageUrl: 'https://i2.kknews.cc/SIG=m8bseq/o0p0008q8qoq4pn7493.jpg',
-                                                  title: 'My button sample',
-                                                  text: 'Hello, my button',
-                                                  actions: [
-                                                      { label: 'Go to line.me', type: 'uri', uri: 'https://line.me' },
-                                                      { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
-                                                      { label: '言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
-                                                      { label: 'Say message', type: 'message', text: 'Rice=米' },
-                                                  ],
-                                              },
-                                          }]);
-                                      default :
-                                          event.reply('這種植物我建議你還是別種了');
-                                  }
-                              });
-                              break;
-                          case '重設' :
-                              qAndAStep = -1; 
-                              event.reply('ok輸入y開始重新設定');
-                              break;
-                          default:
-                              event.reply('我不能這麼做!!');
-                        }
-                  }
+                //   qAndAStep = snapshot.val();
+                //   if (qAndAStep === 0 ) {
+                //       await event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！');
+                //   } else if(qAndAStep === 1) {
+                //       event.reply('可以告訴我你的植物種類嗎？');
+                //       updateData(lineId, "deviceId", event.message.text);
+                //   } else if(qAndAStep === 2) {
+                //       event.reply('謝謝！我們又邁進了一步！！可以讓我知道要怎麼稱呼你嗎？');
+                //       updateData(lineId, "plantType", event.message.text);
+                //   } else if(qAndAStep === 3) {
+                //       event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!');
+                //       updateData(lineId, "name", event.message.text);
+                //   } else if(qAndAStep === 99) {
+                //       switch (event.message.text) {
+                //           case 'help' :
+                //               event.reply({
+                //                   type: 'image',
+                //                   originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
+                //                   previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
+                //               });
+                //               break;
+                //           case 'ok' :
+                //               firebase.database().ref(`users/${lineId}/plantType`).once('value', function (snapshot) {
+                //                   var data = snapshot.val();
+                //                   switch (data) {
+                //                       case '薄荷' :
+                //                           return event.reply(['Line 1', {
+                //                               type: 'template',
+                //                               altText: 'Buttons alt text',
+                //                               template: {
+                //                                   type: 'buttons',
+                //                                   thumbnailImageUrl: 'https://i2.kknews.cc/SIG=m8bseq/o0p0008q8qoq4pn7493.jpg',
+                //                                   title: 'My button sample',
+                //                                   text: 'Hello, my button',
+                //                                   actions: [
+                //                                       { label: 'Go to line.me', type: 'uri', uri: 'https://line.me' },
+                //                                       { label: 'Say hello1', type: 'postback', data: 'hello こんにちは' },
+                //                                       { label: '言 hello2', type: 'postback', data: 'hello こんにちは', text: 'hello こんにちは' },
+                //                                       { label: 'Say message', type: 'message', text: 'Rice=米' },
+                //                                   ],
+                //                               },
+                //                           }]);
+                //                       default :
+                //                           event.reply('這種植物我建議你還是別種了');
+                //                   }
+                //               });
+                //               break;
+                //           case '重設' :
+                //               qAndAStep = -1; 
+                //               event.reply('ok輸入y開始重新設定');
+                //               break;
+                //           default:
+                //               event.reply('我不能這麼做!!');
+                //         }
+                //   }
+                event.reply('hello')
   
    
               } 
