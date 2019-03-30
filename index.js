@@ -26,11 +26,10 @@ const linebotParser = bot.parser();
 
 app.post('/linewebhook', linebotParser);
 
-let lineId;
 
 
 bot.on('message', function (event) {
-    lineId = event.source.userId;
+    let lineId = event.source.userId;
     firebase.database().ref('users/' + lineId).set({
         deviceId: 0,
         plantType: 0,
