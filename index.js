@@ -33,7 +33,6 @@ bot.on('message', function (event) {
     let lineId = event.source.userId
     let ref = firebase.database().ref(`users/${lineId}/steps`)
     let msg = event.message.text
-    let name = event.source.profile.displayName;
 
 
     ref.once('value')
@@ -43,7 +42,27 @@ bot.on('message', function (event) {
           switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg)
-              event.reply(`${name}可以告訴我你的植物種類嗎？`)
+              event.reply({
+                type: 'template',
+                altText: '請選擇你的植物',
+                template: {
+                  type: 'confirm',
+                  text: 'Are you sure?',
+                  actions: [{
+                    type: 'message',
+                    label: 'Yes',
+                    text: 'yes'
+                  }, {
+                    type: 'message',
+                    label: 'No',
+                    text: 'no'
+                  }, {
+                    type: 'message',
+                    label: 'No',
+                    text: 'no'
+                  }]
+                }
+              });
               break;
             case 1:
               updateData(lineId, "plantType", msg)
