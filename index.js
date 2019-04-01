@@ -35,24 +35,22 @@ bot.on('message', function (event) {
     let msg = event.message.text
 
     ref.once('value')
-      .then(function(snapshot) 
-      {
-        if(snapshot.exists()) 
-        {
+      .then(function(snapshot) {
+        if(snapshot.exists()) {
           let step = snapshot.val()
-          switch (step) 
-          {
+          switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg)
-              updateData(lineId, "steps", step + 1)
               event.reply('可以告訴我你的植物種類嗎？')
               break;
+            
             default :
               event.reply('i cant do this')
           }
+          if (step > 3) { updateData(lineId, "steps", 99) }
+          else {updateData(lineId, "steps", step + 1)}
         }
-        else 
-        {
+        else {
             console.log('init')
             initData(lineId)
             event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
