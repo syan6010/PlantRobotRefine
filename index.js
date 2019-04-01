@@ -36,8 +36,9 @@ bot.on('message', function (event) {
             .then(function(snapshot) {
                 if(snapshot.exists()) 
                 {
+                    let step = snapshot.val()
                     console.log(snapshot.val())
-                    event.reply(lineId)
+                    event.reply(step)
                 }
                 else 
                 {
