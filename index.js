@@ -44,6 +44,7 @@ bot.on('message', function (event) {
           {
             case 0 :
               updateData(lineId, "deviceId", msg)
+              updateData(lineId, "steps", step + 1)
               event.reply('可以告訴我你的植物種類嗎？')
               break;
             default :
