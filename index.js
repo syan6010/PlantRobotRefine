@@ -33,6 +33,7 @@ bot.on('message', function (event) {
     let lineId = event.source.userId
     let ref = firebase.database().ref(`users/${lineId}/steps`)
     let msg = event.message.text
+    let name = event.name.displayName
 
     ref.once('value')
       .then(function(snapshot) {
@@ -41,14 +42,17 @@ bot.on('message', function (event) {
           switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg)
-              event.reply('可以告訴我你的植物種類嗎？')
+              event.reply(`${name},可以告訴我你的植物種類嗎？`)
               break;
-            
+            case 1:
+              updateData(lineId, "plantType", msg)
+              event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!')
+              break;
             default :
               event.reply('i cant do this')
           }
-          if (step > 3) { updateData(lineId, "steps", 99) }
-          else {updateData(lineId, "steps", step + 1)}
+          if (step > 1) { updateData(lineId, "steps", 99) }
+          else { updateData(lineId, "steps", step + 1) }
         }
         else {
             console.log('init')
@@ -58,9 +62,6 @@ bot.on('message', function (event) {
       });
   }
 });
-
-
-
 
 
 app.listen(process.env.PORT || 80, function () {
@@ -73,7 +74,6 @@ let updateData = (lineId, postKey, postData) => {
   
     return firebase.database().ref().update(updates);
 }
-
 
 let initData = (lineId) => {
     firebase.database().ref('users/' + lineId).set({
