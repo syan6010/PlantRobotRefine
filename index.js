@@ -33,8 +33,9 @@ bot.on('message', function (event) {
     let lineId = event.source.userId
     let ref = firebase.database().ref(`users/${lineId}/steps`)
     let msg = event.message.text
+    let name = 'refine';
     event.source.profile().then(function (profile) {
-      let name = profile.displayName
+      name = profile.displayName
     });
 
 
