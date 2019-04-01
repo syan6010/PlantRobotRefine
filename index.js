@@ -33,7 +33,6 @@ bot.on('message', function (event) {
     let lineId = event.source.userId
     let ref = firebase.database().ref(`users/${lineId}/steps`)
     let msg = event.message.text
-    let name = event.name.displayName
 
     ref.once('value')
       .then(function(snapshot) {
@@ -42,7 +41,7 @@ bot.on('message', function (event) {
           switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg)
-              event.reply(`${name},可以告訴我你的植物種類嗎？`)
+              event.reply(`可以告訴我你的植物種類嗎？`)
               break;
             case 1:
               updateData(lineId, "plantType", msg)
