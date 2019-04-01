@@ -10,13 +10,13 @@ const bot = linebot({
 });
 
 var config = {
-    apiKey: process.env.apiKey,
-    authDomain: process.env.authDomain,
-    databaseURL: process.env.databaseURL,
-    projectId: process.env.projectId,
-    storageBucket: process.env.storageBucket,
-    messagingSenderId: process.env.messagingSenderId
-  };
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  databaseURL: process.env.databaseURL,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId
+};
 
 firebase.initializeApp(config);
 
@@ -30,23 +30,33 @@ app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
   if (event.message.type === 'text') {
-    let lineId = event.source.userId;
-      let ref = firebase.database().ref(`users/${lineId}/steps`);
-      ref.once('value')
-        .then(function(snapshot) {
-          if(snapshot.exists()) 
+    let lineId = event.source.userId
+    let ref = firebase.database().ref(`users/${lineId}/steps`)
+    let msg = event.message.text
+
+    ref.once('value')
+      .then(function(snapshot) 
+      {
+        if(snapshot.exists()) 
+        {
+          let step = snapshot.val()
+          switch (step) 
           {
-            let step = snapshot.val()
-              console.log(step)
-              event.reply(step)
-            }
-          else 
-          {
+            case 0 :
+              updateData(lineId, deviceId, msg)
+              event.reply('可以告訴我你的植物種類嗎？')
+              break;
+            default :
+              event.reply('i cant do this')
+          }
+        }
+        else 
+        {
             console.log('init')
             initData(lineId)
             event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
-          }
-         });
+        }
+      });
   }
 });
 
