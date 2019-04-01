@@ -49,7 +49,17 @@ bot.on('message', function (event) {
               event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!')
               break;
             default :
-              event.reply('i cant do this')
+              switch (msg) {
+                case 'ok' :
+                  event.reply('i cant do this')
+                  break;
+                case '重設' :
+                  updateData(lineId, "steps", -1)
+                  event.reply('重設成功！')
+                  break;
+                default :
+                  event.reply('i cant do this')
+              }
           }
           if (step > 1) { updateData(lineId, "steps", 99) }
           else { updateData(lineId, "steps", step + 1) }
