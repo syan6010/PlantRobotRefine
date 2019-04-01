@@ -30,14 +30,14 @@ app.post('/linewebhook', linebotParser);
 
 bot.on('message', function (event) {
     if (event.message.type === 'text') {
-        lineId = event.source.userId;
+        let lineId = event.source.userId;
         let ref = firebase.database().ref(`users/${lineId}/steps`);
         ref.once('value')
             .then(function(snapshot) {
                 if(snapshot.exists()) 
                 {
                     console.log(snapshot.val())
-                    event.reply(snapshot.val())
+                    event.reply(lineId)
                 }
                 else 
                 {
