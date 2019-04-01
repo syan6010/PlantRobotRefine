@@ -37,7 +37,7 @@ bot.on('message', function (event) {
                 if(snapshot.exists()) 
                 {
                     let step = snapshot.val()
-                    console.log(snapshot.val())
+                    console.log(step)
                     event.reply(step)
                 }
                 else 
