@@ -29,24 +29,25 @@ app.post('/linewebhook', linebotParser);
 
 
 bot.on('message', function (event) {
-    if (event.message.type === 'text') {
-        let lineId = event.source.userId;
-        let ref = firebase.database().ref(`users/${lineId}/steps`);
-        ref.once('value')
-            .then(function(snapshot) {
-                if(snapshot.exists()) 
-                {
-                    let step = snapshot.val()
-                    console.log(step)
-                    event.reply(step)
-                }
-                else 
-                {
-                    console.log('init')
-                    initData(lineId)
-                }
-            });
-    }
+  if (event.message.type === 'text') {
+    let lineId = event.source.userId;
+      let ref = firebase.database().ref(`users/${lineId}/steps`);
+      ref.once('value')
+        .then(function(snapshot) {
+          if(snapshot.exists()) 
+          {
+            let step = snapshot.val()
+              console.log(step)
+              event.reply(step)
+            }
+          else 
+          {
+            console.log('init')
+            initData(lineId)
+            event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
+          }
+         });
+  }
 });
 
 
