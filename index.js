@@ -31,17 +31,20 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
     if (event.message.type === 'text') {
         lineId = event.source.userId;
-
-        firebase.database().ref(`users/${lineId}/steps`).on('value', function (snapshot) {
-            if(snapshot.exists()) 
-            {           
-              event.reply(snapshot.val())
-            }
-            else 
-            {
-                initData(lineId);
-            }
-        });
+        let ref = firebase.database().ref(`users/${lineId}/steps`);
+        ref.once('value')
+            .then(function(snapshot) {
+                if(snapshot.exists()) 
+                {
+                    console.log(snapshot.val())
+                    event.reply(snapshot.val())
+                }
+                else 
+                {
+                    console.log('init')
+                    initData(lineId)
+                }
+            });
     }
 });
 
