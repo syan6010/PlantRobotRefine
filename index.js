@@ -54,7 +54,6 @@ bot.on('message', function (event) {
                   event.reply('i cant do this')
                   break;
                 case '重設' :
-                  updateData(lineId, "steps", -1)
                   step = -1
                   event.reply('重設成功！')
                   break;
