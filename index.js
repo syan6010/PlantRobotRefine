@@ -31,7 +31,7 @@ app.post('/linewebhook', linebotParser);
 bot.on('message', function (event) {
   if (event.message.type === 'text') {
     let lineId = event.source.userId
-    let ref = firebase.database().ref(`users/${lineId}/steps`)
+    let ref = firebase.database().ref(`users_device/${lineId}/step`)
     let msg = event.message.text
 
 
@@ -61,8 +61,8 @@ bot.on('message', function (event) {
                   event.reply('i cant do this')
               }
           }
-          if (step > 1) { updateData(lineId, "steps", 99) }
-          else { updateData(lineId, "steps", step + 1) }
+          if (step > 1) { updateData(lineId, "step", 99) }
+          else { updateData(lineId, "step", step + 1) }
         }
         else {
             console.log('init')
@@ -80,18 +80,19 @@ app.listen(process.env.PORT || 80, function () {
 
 let updateData = (lineId, postKey, postData) => {
     let updates = {};
-    updates[`users/${lineId}/${postKey}`] = postData;
+    updates[`user_device/${lineId}/${postKey}`] = postData;
   
     return firebase.database().ref().update(updates);
 }
 
 let initData = (lineId) => {
-    firebase.database().ref('users/' + lineId).set({
+    firebase.database().ref('user_device/' + lineId).set({
         deviceId: 0,
-        plantType: 0,
+        dhtStandard: 0,
         name : 0,
-        dht : 0,
-        temperature : 0,
-        steps : 0
+        plantType : 0,
+        step : 0,
+        waterTime : 0
     });
 }
+
