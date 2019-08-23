@@ -45,6 +45,12 @@ bot.on('message', function (event) {
               event.reply(`可以告訴我你的植物種類嗎？`)
               break;
             case 1:
+              if(msg == "向日葵") { 
+                updateData(lineId, "dhtStandard", 90)
+              } 
+              else {
+                updateData(lineId, "dhtStandard", 50)
+              }
               updateData(lineId, "plantType", msg)
               event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!')
               break;
