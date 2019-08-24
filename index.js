@@ -79,6 +79,10 @@ bot.on('message', function (event) {
   }
 });
 
+//從這開始
+
+
+
 
 app.listen(process.env.PORT || 80, function () {
   console.log('LineBot is running.');
