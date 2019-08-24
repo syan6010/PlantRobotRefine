@@ -80,8 +80,19 @@ bot.on('message', function (event) {
 });
 
 //從這開始
-
-
+var dht,temperture,humidity,hour;
+db.ref("environment_condition/date/user_id/id/temperture").on('value', function (snapshot) {
+  temperture = snapshot.val();
+  console.log(temperture);
+});
+db.ref("environment_condition/date/user_id/id/humidity").on('value', function (snapshot) {
+  humidity = snapshot.val();
+  console.log(humidity);
+});
+db.ref("environment_condition/date/user_id/id/hour").on('value', function (snapshot) {
+  hour = snapshot.val();
+  console.log(hour);
+});
 
 
 app.listen(process.env.PORT || 80, function () {
