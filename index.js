@@ -79,20 +79,36 @@ bot.on('message', function (event) {
   }
 });
 
-//從這開始
-var dht,temperture,humidity,hour;
-db.ref("environment_condition/date/user_id/id/temperture").on('value', function (snapshot) {
-  temperture = snapshot.val();
-  console.log(temperture);
+//這裡開始------------------------------------------------------------
+function getTodayDate() {
+  var fullDate = new Date();
+  var yyyy = fullDate.getFullYear();
+  var MM = (fullDate.getMonth() + 1) >= 10 ? (fullDate.getMonth() + 1) : ("0" + (fullDate.getMonth() + 1));
+  var dd = fullDate.getDate() < 10 ? ("0"+fullDate.getDate()) : fullDate.getDate();
+  var today = yyyy + "-" + MM + "-" + dd;
+  return today;
+}
+
+var temperture,humidity,envirHour,dht,soilHour;
+firebase.database().ref('/environment_condition/123/' + getTodayDate() + "/" + loginUser.uid).on('value', function (snapshot) {
+	envirHour = snapshot.val().hour;
+	humidity = snapshot.val().humidity;
+	temperture = snapshot.val().temperture;
+	console.log("環境狀態抓取時間(hr):" + envirHour);
+	console.log("環境濕度:" + humidity);
+	console.log("環境溫度:" + temperture);
 });
-db.ref("environment_condition/date/user_id/id/humidity").on('value', function (snapshot) {
-  humidity = snapshot.val();
-  console.log(humidity);
+
+firebase.database().ref('/plant_condition/123/' + getTodayDate() + "/" + loginUser.uid).on('value', function (snapshot) {
+	dht = snapshot.val().dht;
+	soilHour = snapshot.val().hour;
+	console.log("土壤濕度:" + dht);
+	console.log("土壤狀態抓取時間(hr):" + soilHour);
 });
-db.ref("environment_condition/date/user_id/id/hour").on('value', function (snapshot) {
-  hour = snapshot.val();
-  console.log(hour);
-});
+
+
+//---------------------------------------------------------------------
+
 
 
 app.listen(process.env.PORT || 80, function () {
