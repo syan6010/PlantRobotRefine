@@ -64,7 +64,7 @@ bot.on('message', function (event) {
                   event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
                   break;
                 default :
-                  event.reply('i cant do this')
+                  event.reply('i cant do this!')
               }
           }
           if (step > 1) { updateData(lineId, "step", 99) }
