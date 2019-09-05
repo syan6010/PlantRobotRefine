@@ -52,7 +52,7 @@ bot.on('message', function (event) {
                 updateData(lineId, "dhtStandard", 50)
               }
               updateData(lineId, "plantType", msg)
-              event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!')
+              event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!!')
               break;
             default :
               switch (msg) {
