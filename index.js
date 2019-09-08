@@ -79,6 +79,16 @@ bot.on('message', function (event) {
   }
 });
 
+client.pushMessage('U0b6e923254483d85b37802373341c02d', 'hello')
+  .then(() => {
+    console.log('success!')
+  })
+  .catch((err) => {
+    console.log('error')
+  });
+
+
+
 
 app.listen(process.env.PORT || 80, function () {
   console.log('LineBot is running.');
@@ -101,4 +111,6 @@ let initData = (lineId) => {
         waterTime : 0
     });
 }
+
+
 
