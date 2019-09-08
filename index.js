@@ -79,19 +79,19 @@ bot.on('message', function (event) {
   }
 });
 
-const message123 = {
-  type: 'text',
-  text: 'Hello World!'
-};
+// const message123 = {
+//   type: 'text',
+//   text: 'Hello World!'
+// };
 
 
-client.pushMessage('U0b6e923254483d85b37802373341c02d', message123)
-  .then(() => {
-    console.log('success!')
-  })
-  .catch((err) => {
-    console.log('error')
-  });
+// client.pushMessage('U0b6e923254483d85b37802373341c02d', message123)
+//   .then(() => {
+//     console.log('success!')
+//   })
+//   .catch((err) => {
+//     console.log('error')
+//   });
 
 
 
