@@ -79,7 +79,13 @@ bot.on('message', function (event) {
   }
 });
 
-client.pushMessage('U0b6e923254483d85b37802373341c02d', 'hello')
+const message123 = {
+  type: 'text',
+  text: 'Hello World!'
+};
+
+
+client.pushMessage('U0b6e923254483d85b37802373341c02d', message123)
   .then(() => {
     console.log('success!')
   })
