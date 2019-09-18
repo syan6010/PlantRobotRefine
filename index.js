@@ -115,7 +115,7 @@ let initData = (lineId) => {
 
 const  scheduleCronstyle = ()=>{
   //每分钟的第30秒定时执行一次:
-    schedule.scheduleJob('30 * * * * *',()=>{
+    schedule.scheduleJob('30 8 10 * * *',()=>{
       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
     }); 
 }
