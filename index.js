@@ -26,6 +26,8 @@ const linebotParser = bot.parser();
 
 app.post('/linewebhook', linebotParser);
 
+var mini = ["石蓮花", "蘆薈", "仙人掌"];
+var large = ["向日葵", "薄荷", "艾草"]
 
 
 bot.on('message', function (event) {
@@ -45,9 +47,12 @@ bot.on('message', function (event) {
               event.reply(`可以告訴我你的植物種類嗎？`)
               break;
             case 1:
-              if(msg == "向日葵") { 
+              if(mini.includes(msg)) { 
                 updateData(lineId, "dhtStandard", 90)
               } 
+              else if(large.includes(msg)){
+                updateData(lineId, "dhtStandard", 70)
+              }
               else {
                 updateData(lineId, "dhtStandard", 50)
               }
