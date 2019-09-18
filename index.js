@@ -87,8 +87,8 @@ bot.on('message', function (event) {
 });
 
 
-// scheduleRecurrenceRule()
-bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+scheduleRecurrenceRule()
+// bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
 
 
 app.listen(process.env.PORT || 80, function () {
@@ -113,19 +113,14 @@ let initData = (lineId) => {
     });
 }
 
-// let scheduleRecurrenceRule = () => {
-//   var rule = new schedule.RecurrenceRule();
-//     // rule.dayOfWeek = 2;
-//     // rule.month = 3;
-//     // rule.dayOfMonth = 1;
-//     // rule.hour = 1;
-//     // rule.minute = 42;
-//     rule.second = 40;
-    
-//     schedule.scheduleJob(rule, function(){
-//       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
-//     });
+let scheduleRecurrenceRule = () => {
+  var rule = new schedule.RecurrenceRule();
+  rule.minute = 25;
+
+  schedule.scheduleJob(rule, function(){
+      bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+  });
    
-// }
+}
 
 
