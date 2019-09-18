@@ -1,6 +1,8 @@
 const linebot = require('linebot');
 const express = require('express');
 const firebase = require("firebase");
+const schedule = require('node-schedule');
+
 
 
 const bot = linebot({
@@ -84,23 +86,8 @@ bot.on('message', function (event) {
   }
 });
 
-// const message123 = {
-//   type: 'text',
-//   text: 'Hello World!'
-// };
 
-
-// client.pushMessage('U0b6e923254483d85b37802373341c02d', message123)
-//   .then(() => {
-//     console.log('success!')
-//   })
-//   .catch((err) => {
-//     console.log('error')
-//   });
-
-bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
-
-
+scheduleRecurrenceRule()
 
 
 app.listen(process.env.PORT || 80, function () {
@@ -125,5 +112,19 @@ let initData = (lineId) => {
     });
 }
 
+let scheduleRecurrenceRule = () => {
+  var rule = new schedule.RecurrenceRule();
+    // rule.dayOfWeek = 2;
+    // rule.month = 3;
+    // rule.dayOfMonth = 1;
+    // rule.hour = 1;
+    // rule.minute = 42;
+    rule.second = 40;
+    
+    schedule.scheduleJob(rule, function(){
+      bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+    });
+   
+}
 
 
