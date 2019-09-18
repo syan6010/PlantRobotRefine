@@ -88,7 +88,7 @@ bot.on('message', function (event) {
 
 
 // scheduleRecurrenceRule()
-bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+// bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
 
 
 app.listen(process.env.PORT || 80, function () {
@@ -113,14 +113,12 @@ let initData = (lineId) => {
     });
 }
 
-// let scheduleRecurrenceRule = () => {
-//   var rule = new schedule.RecurrenceRule();
-//   rule.minute = 25;
+const  scheduleCronstyle = ()=>{
+  //每分钟的第30秒定时执行一次:
+    schedule.scheduleJob('30 * * * * *',()=>{
+      bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+    }); 
+}
 
-//   schedule.scheduleJob(rule, function(){
-//       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
-//   });
-   
-// }
-
+scheduleCronstyle();
 
