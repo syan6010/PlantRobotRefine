@@ -87,10 +87,6 @@ bot.on('message', function (event) {
 });
 
 
-// scheduleRecurrenceRule()
-// bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
-
-
 app.listen(process.env.PORT || 80, function () {
   console.log('LineBot is running.');
 });
@@ -114,8 +110,7 @@ let initData = (lineId) => {
 }
 
 const  scheduleCronstyle = ()=>{
-  //每分钟的第30秒定时执行一次:
-    schedule.scheduleJob('30 8 10 * * *',()=>{
+    schedule.scheduleJob('30 20 25 * * *',()=>{
       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
     }); 
 }
