@@ -110,7 +110,7 @@ let initData = (lineId) => {
 }
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 1 1 * * *',()=>{
+    schedule.scheduleJob('30 12 45 * * *',()=>{
       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
     }); 
 }
