@@ -109,6 +109,16 @@ let initData = (lineId) => {
     });
 }
 
+let line_id_ref = firebase.database().ref(`user_device`)
+
+line_id_ref.once('value')
+  .then(function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      let each_id = childSnapshot.key
+      bot.push('U0b6e923254483d85b37802373341c02d', each_id);
+    })  
+  })
+
 const  scheduleCronstyle = ()=>{
     schedule.scheduleJob('30 57 * * * *',()=>{
       bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
