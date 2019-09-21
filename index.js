@@ -31,6 +31,8 @@ app.post('/linewebhook', linebotParser);
 var mini = ["石蓮花", "蘆薈", "仙人掌"];
 var large = ["向日葵", "薄荷", "艾草"]
 
+let line_id_ref = firebase.database().ref(`user_device`)
+
 
 bot.on('message', function (event) {
   if (event.message.type === 'text') {
@@ -109,33 +111,33 @@ let initData = (lineId) => {
     });
 }
 
-let line_id_ref = firebase.database().ref(`user_device`)
 
-line_id_ref.once('value')
-  .then(function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-      let each_id = childSnapshot.key
-      let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
-      each_plant_type.once('value')
-        .then(function(snapshot){
-          let p_type = snapshot.val()
-          if(mini.includes(p_type)) { 
-            bot.push(each_id, '植物需要較少水分')
-          } 
-          else if(large.includes(p_type)){
-            bot.push(each_id, '植物需要較多水分')
-          }
-          else {
-            bot.push(each_id, '？？？')
-          }
-        })
-      
-    })  
-  })
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 57 * * * *',()=>{
-      bot.push('U0b6e923254483d85b37802373341c02d', 'Push to group');
+    schedule.scheduleJob('30 43 * * * *',()=>{
+
+
+      line_id_ref.once('value')
+        .then(function(snapshot){
+          snapshot.forEach(function(childSnapshot){
+            let each_id = childSnapshot.key
+            let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
+            each_plant_type.once('value')
+              .then(function(snapshot){
+                let p_type = snapshot.val()
+                if(mini.includes(p_type)) { 
+                  bot.push(each_id, '植物需要較少水分')
+                } 
+                else if(large.includes(p_type)){
+                  bot.push(each_id, '植物需要較多水分')
+                }
+                else {
+                  bot.push(each_id, '？？？')
+                }
+              })
+      
+          })  
+        })
     }); 
 }
 
