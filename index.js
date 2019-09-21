@@ -115,7 +115,21 @@ line_id_ref.once('value')
   .then(function(snapshot){
     snapshot.forEach(function(childSnapshot){
       let each_id = childSnapshot.key
-      bot.push('U0b6e923254483d85b37802373341c02d', each_id);
+      let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
+      each_plant_type.once('value')
+        .then(function(snapshot){
+          let p_type = snapshot.val()
+          if(mini.includes(p_type)) { 
+            bot.push(each_id, '植物需要較少水分')
+          } 
+          else if(large.includes(p_type)){
+            bot.push(each_id, '植物需要較多水分')
+          }
+          else {
+            bot.push(each_id, '？？？')
+          }
+        })
+      
     })  
   })
 
