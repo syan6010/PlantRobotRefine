@@ -36,7 +36,7 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 
 let line_id_ref = firebase.database().ref(`user_device`)
-let plant_ref = firebase.database().ref(`plant_condition/123/2019-8-22`)
+let plant_ref = firebase.database().ref(`plant_condition/123/2019-8-22/-Lms3E2xpWh_JYTdgJMC`)
 
 
 
@@ -143,13 +143,11 @@ let initData = (lineId) => {
 }
 
 
-// plant_ref.once('value')
-//   .then(function(snapshot){
-//     snapshot.forEach(function(childSnapshot){
-//       let dht = childSnapshot.key
-//       bot.push(U0b6e923254483d85b37802373341c02d, dht)
-//     })
-//   })
+plant_ref.once('value')
+  .then(function(snapshot){
+    dht = snapshot.val().dht
+    bot.push(U0b6e923254483d85b37802373341c02d, dht)
+  })
 
 
 const  scheduleCronstyle = ()=>{
