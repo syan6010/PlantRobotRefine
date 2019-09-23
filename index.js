@@ -36,6 +36,16 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 
 let line_id_ref = firebase.database().ref(`user_device`)
+let plant_ref = firebase.database().ref(`https://plant-robot.firebaseio.com/environment_condition/123/2019-8-22`)
+
+
+plant_ref.once('value')
+  .then(function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      let dht = childSnapshot.val().dht
+      bot.push(U0b6e923254483d85b37802373341c02d, dht)
+    })
+  })
 
 
 bot.on('message', function (event) {
