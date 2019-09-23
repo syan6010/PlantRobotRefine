@@ -74,7 +74,23 @@ bot.on('message', function (event) {
                 updateData(lineId, "dhtStandard", 60)
               }
               updateData(lineId, "plantType", msg)
-              event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!!')
+              event.reply({
+                type: 'template',
+                altText: '現在自動澆水功能都設定好嘍！！沒週都會幫你推送我的健康數據，要好好照顧我喔！',
+                template: {
+                  type: 'confirm',
+                  text: '你可以問我的內容',
+                  actions: [{
+                    type: 'message',
+                    label: '如何照顧我',
+                    text: '如何照顧我'
+                  }, {
+                    type: 'message',
+                    label: '重新選擇我的種類',
+                    text: '重設'
+                  }]
+                }
+              });
               break;
             default :
               switch (msg) {
