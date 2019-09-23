@@ -109,7 +109,7 @@ bot.on('message', function (event) {
                   break;
                 case '重設' :
                   step = -1
-                  event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！！')
+                  event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！!！')
                   break;
                 default :
                   event.reply('i cant do this!!')
