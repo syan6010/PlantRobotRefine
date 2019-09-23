@@ -154,7 +154,7 @@ let get_avr_dht = () => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 49 * * * *',()=>{
+    schedule.scheduleJob('30 50 * * * *',()=>{
 
 
       line_id_ref.once('value')
@@ -167,25 +167,10 @@ const  scheduleCronstyle = ()=>{
               .then(function(snapshot){
                 let p_type = snapshot.val()
                 if(mini.includes(p_type)) { 
-                  if(avr_dht > 20){
-                    bot.push(each_id, `多肉植物,今天的平均土壤濕度是${avr_dht}健康！！`)
-                    avr_dht = 0
-                  }
-                  else{
-                    bot.push(each_id, `多肉植物,今天的平均土壤濕度是${avr_dht}不健康！！`)
-                    avr_dht = 0
-                  }
- 
+                  bot.push(each_id, '多肉植物')
                 } 
                 else if(mini_a.includes(p_type)){
-                  if(avr_dht > 20){
-                    bot.push(each_id, `芋科室內植物,今天的平均土壤濕度是${avr_dht}健康！！`)
-                    avr_dht = 0
-                  }
-                  else{
-                    bot.push(each_id, `芋科室內植物,今天的平均土壤濕度是${avr_dht}不健康！！`)
-                    avr_dht = 0
-                  }
+                  bot.push(each_id, '芋科室內植物')
                 }
                 else if(large.includes(p_type)){
                   bot.push(each_id, '香花植物')
