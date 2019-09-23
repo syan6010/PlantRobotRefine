@@ -127,7 +127,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 43 * * * *',()=>{
+    schedule.scheduleJob('30 45 * * * *',()=>{
 
 
       line_id_ref.once('value')
