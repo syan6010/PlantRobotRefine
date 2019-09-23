@@ -143,13 +143,13 @@ let initData = (lineId) => {
 }
 
 
-plant_ref.once('value')
-  .then(function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-      let dht = childSnapshot.key
-      bot.push(U0b6e923254483d85b37802373341c02d, dht)
-    })
-  })
+// plant_ref.once('value')
+//   .then(function(snapshot){
+//     snapshot.forEach(function(childSnapshot){
+//       let dht = childSnapshot.key
+//       bot.push(U0b6e923254483d85b37802373341c02d, dht)
+//     })
+//   })
 
 
 const  scheduleCronstyle = ()=>{
