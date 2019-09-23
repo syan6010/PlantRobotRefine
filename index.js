@@ -143,15 +143,15 @@ let initData = (lineId) => {
 }
 
 
-plant_ref.once('value')
-  .then(function(snapshot){
-    dht = snapshot.val().dht
-    bot.push(U0b6e923254483d85b37802373341c02d, dht)
-  })
+// plant_ref.once('value')
+//   .then(function(snapshot){
+//     dht = snapshot.val().dht
+//     bot.push(U0b6e923254483d85b37802373341c02d, dht)
+//   })
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 10 * * * *',()=>{
+    schedule.scheduleJob('30 39 * * * *',()=>{
 
 
       line_id_ref.once('value')
