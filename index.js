@@ -36,7 +36,7 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 
 let line_id_ref = firebase.database().ref(`user_device`)
-let plant_ref = firebase.database().ref(`https://plant-robot.firebaseio.com/plant_condition/123/2019-8-22`)
+let plant_ref = firebase.database().ref(`plant_condition/123/2019-8-22`)
 
 
 
