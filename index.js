@@ -139,19 +139,19 @@ const  scheduleCronstyle = ()=>{
               .then(function(snapshot){
                 let p_type = snapshot.val()
                 if(mini.includes(p_type)) { 
-                  bot.push(each_id, '植物需要較少水分')
+                  bot.push(each_id, '多肉植物')
                 } 
                 else if(mini_a.includes(p_type)){
-                  bot.push(each_id, '植物需要較多水分')
+                  bot.push(each_id, '芋科室內植物')
                 }
                 else if(large.includes(p_type)){
-                  bot.push(each_id, '植物需要較多水分')
+                  bot.push(each_id, '香花植物')
                 }
                 else if(large_a.includes(p_type)){
-                  bot.push(each_id, '植物需要較多水分')
+                  bot.push(each_id, '香草植物')
                 }
                 else if(large_b.includes(p_type)){
-                  bot.push(each_id, '植物需要較多水分')
+                  bot.push(each_id, '大型室内植物')
                 }
                 else {
                   bot.push(each_id, '？？？')
