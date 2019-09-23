@@ -38,7 +38,7 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 let line_id_ref = firebase.database().ref(`user_device`)
 let plant_ref = firebase.database().ref(`https://plant-robot.firebaseio.com/plant_condition/123/2019-8-22`)
 
-let avr_dht = 0;
+// let avr_dht = 0;
 
 
 bot.on('message', function (event) {
@@ -142,19 +142,19 @@ let initData = (lineId) => {
         waterTime : 0
     });
 }
-let get_avr_dht = () => {
-  plant_ref.once('value')
-  .then(function(snapshot){
-    snapshot.forEach(function(childSnapshot){
-      let dht = childSnapshot.val().dht
-      avr_dht += dht;
-    })
-  })
-}
+// let get_avr_dht = () => {
+//   plant_ref.once('value')
+//   .then(function(snapshot){
+//     snapshot.forEach(function(childSnapshot){
+//       let dht = childSnapshot.val().dht
+//       avr_dht += dht;
+//     })
+//   })
+// }
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 50 * * * *',()=>{
+    schedule.scheduleJob('30 52 * * * *',()=>{
 
 
       line_id_ref.once('value')
