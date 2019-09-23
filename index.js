@@ -36,6 +36,9 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 
 let line_id_ref = firebase.database().ref(`user_device`)
+let plant_ref = firebase.database().ref(`https://plant-robot.firebaseio.com/plant_condition/123/2019-8-22`)
+
+let avr_dht = 0;
 
 
 bot.on('message', function (event) {
@@ -139,11 +142,19 @@ let initData = (lineId) => {
         waterTime : 0
     });
 }
-
+let get_avr_dht = () => {
+  plant_ref.once('value')
+  .then(function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      let dht = childSnapshot.val().dht
+      avr_dht += dht;
+    })
+  })
+}
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 48 * * * *',()=>{
+    schedule.scheduleJob('30 49 * * * *',()=>{
 
 
       line_id_ref.once('value')
@@ -151,14 +162,30 @@ const  scheduleCronstyle = ()=>{
           snapshot.forEach(function(childSnapshot){
             let each_id = childSnapshot.key
             let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
+            get_avr_dht()
             each_plant_type.once('value')
               .then(function(snapshot){
                 let p_type = snapshot.val()
                 if(mini.includes(p_type)) { 
-                  bot.push(each_id, '多肉植物')
+                  if(avr_dht > 20){
+                    bot.push(each_id, `多肉植物,今天的平均土壤濕度是${avr_dht}健康！！`)
+                    avr_dht = 0
+                  }
+                  else{
+                    bot.push(each_id, `多肉植物,今天的平均土壤濕度是${avr_dht}不健康！！`)
+                    avr_dht = 0
+                  }
+ 
                 } 
                 else if(mini_a.includes(p_type)){
-                  bot.push(each_id, '芋科室內植物')
+                  if(avr_dht > 20){
+                    bot.push(each_id, `芋科室內植物,今天的平均土壤濕度是${avr_dht}健康！！`)
+                    avr_dht = 0
+                  }
+                  else{
+                    bot.push(each_id, `芋科室內植物,今天的平均土壤濕度是${avr_dht}不健康！！`)
+                    avr_dht = 0
+                  }
                 }
                 else if(large.includes(p_type)){
                   bot.push(each_id, '香花植物')
