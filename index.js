@@ -28,8 +28,12 @@ const linebotParser = bot.parser();
 
 app.post('/linewebhook', linebotParser);
 
-var mini = ["石蓮花", "蘆薈", "仙人掌"];
-var large = ["向日葵", "薄荷", "艾草"]
+var mini = ["虎尾蘭", "蘆薈", "仙人掌"]; //多肉植物
+var mini_a = ["黃金葛", "合果芋"] //芋科室內植物
+var large = ["茉莉花", "百合花", "玫瑰花"]; ///香花植物
+var large_a = ["薄荷", "迷迭香"]; //香草植物
+var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
+
 
 let line_id_ref = firebase.database().ref(`user_device`)
 
@@ -52,13 +56,22 @@ bot.on('message', function (event) {
               break;
             case 1:
               if(mini.includes(msg)) { 
-                updateData(lineId, "dhtStandard", 90)
+                updateData(lineId, "dhtStandard", 75)
               } 
-              else if(large.includes(msg)){
+              else if(mini_a.includes(msg)){
                 updateData(lineId, "dhtStandard", 70)
               }
-              else {
+              else if(large.includes(msg)){
+                updateData(lineId, "dhtStandard", 60)
+              }
+              else if(large_a.includes(msg)){
+                updateData(lineId, "dhtStandard", 40)
+              }
+              else if(large_b.includes(msg)){
                 updateData(lineId, "dhtStandard", 50)
+              }
+              else {
+                updateData(lineId, "dhtStandard", 60)
               }
               updateData(lineId, "plantType", msg)
               event.reply('謝謝接下來我們馬上就可以開始使用了！！輸入OK取得資訊!!!!!!!!')
@@ -128,7 +141,16 @@ const  scheduleCronstyle = ()=>{
                 if(mini.includes(p_type)) { 
                   bot.push(each_id, '植物需要較少水分')
                 } 
+                else if(mini_a.includes(p_type)){
+                  bot.push(each_id, '植物需要較多水分')
+                }
                 else if(large.includes(p_type)){
+                  bot.push(each_id, '植物需要較多水分')
+                }
+                else if(large_a.includes(p_type)){
+                  bot.push(each_id, '植物需要較多水分')
+                }
+                else if(large_b.includes(p_type)){
                   bot.push(each_id, '植物需要較多水分')
                 }
                 else {
