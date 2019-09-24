@@ -150,14 +150,22 @@ plant_ref.once('value')
     snapshot.forEach(function (childSnapshot){
       let dht = childSnapshot.child("dht").val()
       console.log(dht)
-      bot.push("U0b6e923254483d85b37802373341c02d", '32.5')
+      bot.push("U0b6e923254483d85b37802373341c02d", `${dht}`)
     })
   })
 
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 39 * * * *',()=>{
+    schedule.scheduleJob('30 34 * * * *',()=>{
+      plant_ref.once('value')
+        .then(function(snapshot){
+          snapshot.forEach(function (childSnapshot){
+            let dht = childSnapshot.child("dht").val()
+            console.log(dht)
+            bot.push("U0b6e923254483d85b37802373341c02d", `${dht}`)
+          })
+        })
 
 
       line_id_ref.once('value')
