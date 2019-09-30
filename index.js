@@ -94,7 +94,7 @@ bot.on('message', function (event) {
                     actions: [{
                       type: 'message',
                       label: '選擇',
-                      text: '芋科室內植物'
+                      text: '香花植物'
                     }, {
                       type: 'uri',
                       label: '培育技巧',
