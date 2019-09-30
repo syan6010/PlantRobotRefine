@@ -75,9 +75,9 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
-                    title: 'this is menu',
-                    text: 'description',
+                    thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
+                    title: '芋科室內植物',
+                    text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
                     actions: [{
                       type: 'message',
                       label: '選擇',
