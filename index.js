@@ -56,12 +56,7 @@ bot.on('message', function (event) {
           switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg);
-              event.reply('請選擇你要扶養的植物種類歐！！');
-              event.reply({
-                type: 'sticker',
-                packageId: '1',
-                stickerId: '1'
-              });              
+              event.reply('請選擇你要扶養的植物種類歐！！');           
               event.reply({
                 type: 'template',
                 altText: 'this is a carousel template',
@@ -72,9 +67,9 @@ bot.on('message', function (event) {
                     title: '多肉植物',
                     text: '多肉植物又被稱作肉質植物，是指植物能在土壤乾旱的條件下擁有肥大的葉或莖，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
-                      type: 'message',
-                      label: '如何照顧我',
-                      text: '如何照顧我'
+                      type: 'postback',
+                      label: 'Add to cart',
+                      data: 'action=add&itemid=111'
                     }, {
                       type: 'postback',
                       label: 'Add to cart',
@@ -89,17 +84,17 @@ bot.on('message', function (event) {
                     title: 'this is menu',
                     text: 'description',
                     actions: [{
-                      type: 'message',
-                      label: '如何照顧我',
-                      text: '如何照顧我'
-                    }, {
-                      type: '蘆薈',
+                      type: 'postback',
                       label: 'Add to cart',
-                      text: '如何照顧我'
+                      data: 'action=add&itemid=111'
                     }, {
-                      type: '仙人掌',
-                      label: 'View detail',
-                      text: '如何照顧我'
+                      type: 'postback',
+                      label: 'Add to cart',
+                      data: 'action=add&itemid=111'
+                    }, {
+                      type: 'postback',
+                      label: 'Add to cart',
+                      data: 'action=add&itemid=111'
                     }]
                   }]
                 }
