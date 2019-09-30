@@ -88,9 +88,9 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_2.jpg',
-                    title: '香草植物',
-                    text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
+                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+                    title: '多肉植物',
+                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
                       type: 'message',
                       label: '選擇',
@@ -102,8 +102,8 @@ bot.on('message', function (event) {
                     }]
                   }, {
                     thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-                    title: '香花植物',
-                    text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
+                    title: '多肉植物',
+                    text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
                     actions: [{
                       type: 'message',
                       label: '選擇',
@@ -114,9 +114,9 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_0.jpg',
-                    title: '大型室內植物',
-                    text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
+                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+                    title: '多肉植物',
+                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
                       type: 'message',
                       label: '選擇',
