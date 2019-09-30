@@ -80,7 +80,7 @@ bot.on('message', function (event) {
               updateData(lineId, "plantType", msg)
               event.reply({
                 type: 'template',
-                altText: '現在自動澆水功能都設定好嘍！！沒週都會幫你推送我的健康數據，要好好照顧我喔！',
+                altText: '現在自動澆水功能都設定好嘍！！每週都會幫你推送我的健康數據，要好好照顧我喔！',
                 template: {
                   type: 'confirm',
                   text: '你可以問我的內容',
@@ -99,48 +99,7 @@ bot.on('message', function (event) {
             default :
               switch (msg) {
                 case '如何照顧我' :
-                  event.reply({
-                    type: 'template',
-                    altText: 'this is a carousel template',
-                    template: {
-                      type: 'carousel',
-                      columns: [{
-                        thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-                        title: 'this is menu',
-                        text: 'description',
-                        actions: [{
-                          type: 'postback',
-                          label: 'Buy',
-                          data: 'action=buy&itemid=111'
-                        }, {
-                          type: 'postback',
-                          label: 'Add to cart',
-                          data: 'action=add&itemid=111'
-                        }, {
-                          type: 'uri',
-                          label: 'View detail',
-                          uri: 'http://example.com/page/111'
-                        }]
-                      }, {
-                        thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
-                        title: 'this is menu',
-                        text: 'description',
-                        actions: [{
-                          type: 'postback',
-                          label: 'Buy',
-                          data: 'action=buy&itemid=222'
-                        }, {
-                          type: 'postback',
-                          label: 'Add to cart',
-                          data: 'action=add&itemid=222'
-                        }, {
-                          type: 'uri',
-                          label: 'View detail',
-                          uri: 'http://example.com/page/222'
-                        }]
-                      }]
-                    }
-                  });
+                  sent_plant_choose();
                   break;
                 case '重設' :
                   step = -1
@@ -166,6 +125,53 @@ bot.on('message', function (event) {
 app.listen(process.env.PORT || 80, function () {
   console.log('LineBot is running.');
 });
+
+
+
+let sent_plant_choose = () => {
+  event.reply({
+    type: 'template',
+    altText: 'this is a carousel template',
+    template: {
+      type: 'carousel',
+      columns: [{
+        thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
+        title: 'this is menu',
+        text: 'description',
+        actions: [{
+          type: 'postback',
+          label: 'Buy',
+          data: 'action=buy&itemid=111'
+        }, {
+          type: 'postback',
+          label: 'Add to cart',
+          data: 'action=add&itemid=111'
+        }, {
+          type: 'uri',
+          label: 'View detail',
+          uri: 'http://example.com/page/111'
+        }]
+      }, {
+        thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
+        title: 'this is menu',
+        text: 'description',
+        actions: [{
+          type: 'postback',
+          label: 'Buy',
+          data: 'action=buy&itemid=222'
+        }, {
+          type: 'postback',
+          label: 'Add to cart',
+          data: 'action=add&itemid=222'
+        }, {
+          type: 'uri',
+          label: 'View detail',
+          uri: 'http://example.com/page/222'
+        }]
+      }]
+    }
+  });
+}
 
 let updateData = (lineId, postKey, postData) => {
     let updates = {};
