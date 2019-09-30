@@ -97,7 +97,7 @@ bot.on('message', function (event) {
                       text: '芋科室內植物'
                     }, {
                       type: 'uri',
-                      label: 'View detail',
+                      label: '培育技巧',
                       uri: 'http://example.com/page/111'
                     }]
                   }]
