@@ -88,21 +88,21 @@ bot.on('message', function (event) {
                         uri: 'http://example.com/page/111'
                       }]
                    }, {
-                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_0.jpg',
-                    title: '大型室内植物',
-                    text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
+                    thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
+                    title: 'this is menu',
+                    text: 'description',
                     actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '大型室内植物'
+                      type: 'postback',
+                      label: 'Add to cart',
+                      data: 'action=add&itemid=111'
                     }, {
                       type: 'uri',
-                      label: '培育技巧',
+                      label: 'View detail',
                       uri: 'http://example.com/page/111'
                     }]
                   }]
                 }
-              });
+              });        
               // event.reply({
               //   type: 'template',
               //   altText: 'this is a carousel template',
