@@ -99,7 +99,48 @@ bot.on('message', function (event) {
             default :
               switch (msg) {
                 case '如何照顧我' :
-                  sent_plant_choose();
+                event.reply({
+                  type: 'template',
+                  altText: 'this is a carousel template',
+                  template: {
+                    type: 'carousel',
+                    columns: [{
+                      thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
+                      title: 'this is menu',
+                      text: 'description',
+                      actions: [{
+                        type: 'postback',
+                        label: 'Buy',
+                        data: 'action=buy&itemid=111'
+                      }, {
+                        type: 'postback',
+                        label: 'Add to cart',
+                        data: 'action=add&itemid=111'
+                      }, {
+                        type: 'uri',
+                        label: 'View detail',
+                        uri: 'http://example.com/page/111'
+                      }]
+                    }, {
+                      thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
+                      title: 'this is menu',
+                      text: 'description',
+                      actions: [{
+                        type: 'postback',
+                        label: 'Buy',
+                        data: 'action=buy&itemid=222'
+                      }, {
+                        type: 'postback',
+                        label: 'Add to cart',
+                        data: 'action=add&itemid=222'
+                      }, {
+                        type: 'uri',
+                        label: 'View detail',
+                        uri: 'http://example.com/page/222'
+                      }]
+                    }]
+                  }
+                });
                   break;
                 case '重設' :
                   step = -1
@@ -128,51 +169,6 @@ app.listen(process.env.PORT || 80, function () {
 
 
 
-let sent_plant_choose = () => {
-  event.reply({
-    type: 'template',
-    altText: 'this is a carousel template',
-    template: {
-      type: 'carousel',
-      columns: [{
-        thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-        title: 'this is menu',
-        text: 'description',
-        actions: [{
-          type: 'postback',
-          label: 'Buy',
-          data: 'action=buy&itemid=111'
-        }, {
-          type: 'postback',
-          label: 'Add to cart',
-          data: 'action=add&itemid=111'
-        }, {
-          type: 'uri',
-          label: 'View detail',
-          uri: 'http://example.com/page/111'
-        }]
-      }, {
-        thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
-        title: 'this is menu',
-        text: 'description',
-        actions: [{
-          type: 'postback',
-          label: 'Buy',
-          data: 'action=buy&itemid=222'
-        }, {
-          type: 'postback',
-          label: 'Add to cart',
-          data: 'action=add&itemid=222'
-        }, {
-          type: 'uri',
-          label: 'View detail',
-          uri: 'http://example.com/page/222'
-        }]
-      }]
-    }
-  });
-}
-
 let updateData = (lineId, postKey, postData) => {
     let updates = {};
     updates[`user_device/${lineId}/${postKey}`] = postData;
@@ -192,19 +188,10 @@ let initData = (lineId) => {
 }
 
 
-plant_ref.once('value')
-  .then(function(snapshot){
-    snapshot.forEach(function (childSnapshot){
-      let dht = childSnapshot.child("dht").val()
-      console.log(dht)
-      bot.push("U0b6e923254483d85b37802373341c02d", `${dht}`)
-    })
-  })
-
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 34 * * * *',()=>{
+    schedule.scheduleJob('30 58 * * * *',()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(function (childSnapshot){
