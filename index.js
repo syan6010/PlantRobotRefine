@@ -79,9 +79,9 @@ bot.on('message', function (event) {
                     title: 'this is menu',
                     text: 'description',
                     actions: [{
-                      type: 'postback',
-                      label: 'Add to cart',
-                      data: 'action=add&itemid=111'
+                      type: 'message',
+                      label: '選擇',
+                      text: '多肉植物'
                     }, {
                       type: 'uri',
                       label: 'View detail',
