@@ -55,8 +55,7 @@ bot.on('message', function (event) {
           let step = snapshot.val()
           switch (step) {
             case 0 :
-              updateData(lineId, "deviceId", msg);
-              event.reply('請選擇你要扶養的植物種類歐！！');           
+              updateData(lineId, "deviceId", msg);        
               event.reply({
                 type: 'template',
                 altText: 'this is a carousel template',
@@ -65,11 +64,11 @@ bot.on('message', function (event) {
                   columns: [{
                     thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
                     title: '多肉植物',
-                    text: '多肉植物又被稱作肉質植物，是指植物能在土壤乾旱的條件下擁有肥大的葉或莖，像是虎尾蘭,蘆薈,仙人掌等',
+                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
-                      type: 'postback',
-                      label: 'Add to cart',
-                      data: 'action=add&itemid=111'
+                      type: 'message',
+                      label: '如何照顧我',
+                      text: '如何照顧我'
                     }, {
                       type: 'postback',
                       label: 'Add to cart',
