@@ -74,46 +74,48 @@ bot.on('message', function (event) {
                       label: '培育技巧',
                       uri: 'http://example.com/page/111'
                     }]
-                  }, {
-                    thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
-                    title: '芋科室內植物',
-                    text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '芋科室內植物'
-                    }, {
-                      type: 'uri',
-                      label: '培育技巧',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
-                    title: '香花植物',
-                    text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '香花植物'
-                    }, {
-                      type: 'uri',
-                      label: '培育技巧',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_2.jpg',
-                    title: '香草植物',
-                    text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '香草植物'
-                    }, {
-                      type: 'uri',
-                      label: '培育技巧',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
+                  }, 
+                  // {
+                  //   thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
+                  //   title: '芋科室內植物',
+                  //   text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
+                  //   actions: [{
+                  //     type: 'message',
+                  //     label: '選擇',
+                  //     text: '芋科室內植物'
+                  //   }, {
+                  //     type: 'uri',
+                  //     label: '培育技巧',
+                  //     uri: 'http://example.com/page/111'
+                  //   }]
+                  // }, {
+                  //   thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
+                  //   title: '香花植物',
+                  //   text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
+                  //   actions: [{
+                  //     type: 'message',
+                  //     label: '選擇',
+                  //     text: '香花植物'
+                  //   }, {
+                  //     type: 'uri',
+                  //     label: '培育技巧',
+                  //     uri: 'http://example.com/page/111'
+                  //   }]
+                  // }, {
+                  //   thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_2.jpg',
+                  //   title: '香草植物',
+                  //   text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
+                  //   actions: [{
+                  //     type: 'message',
+                  //     label: '選擇',
+                  //     text: '香草植物'
+                  //   }, {
+                  //     type: 'uri',
+                  //     label: '培育技巧',
+                  //     uri: 'http://example.com/page/111'
+                  //   }]
+                  // }, 
+                  {
                     thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_0.jpg',
                     title: '大型室内植物',
                     text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
