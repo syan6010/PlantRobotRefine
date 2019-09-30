@@ -62,13 +62,21 @@ bot.on('message', function (event) {
                 template: {
                   type: 'carousel',
                   columns: [{
-                    thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
+                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
                     title: '多肉植物',
                     text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
                       type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
+                      label: '如何照顧我',
+                      text: '如何照顧我'
+                    }, {
+                      type: 'postback',
+                      label: 'Add to cart',
+                      data: 'action=add&itemid=111'
+                    }, {
+                      type: 'uri',
+                      label: 'View detail',
+                      uri: 'http://example.com/page/111'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
