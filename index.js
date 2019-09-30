@@ -155,7 +155,7 @@ bot.on('message', function (event) {
                 altText: '現在自動澆水功能都設定好嘍！！每週都會幫你推送我的健康數據，要好好照顧我喔！',
                 template: {
                   type: 'confirm',
-                  text: '你可以問我的內容',
+                  text: '現在自動澆水功能都設定好嘍！！每週都會幫你推送我的健康數據，接下來你可以',
                   actions: [{
                     type: 'message',
                     label: '如何照顧我',
