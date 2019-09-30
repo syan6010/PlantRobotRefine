@@ -67,12 +67,8 @@ bot.on('message', function (event) {
                     text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
                     actions: [{
                       type: 'message',
-                      label: '如何照顧我',
-                      text: '如何照顧我'
-                    }, {
-                      type: 'postback',
-                      label: 'Add to cart',
-                      data: 'action=add&itemid=111'
+                      label: '選擇',
+                      text: '多肉植物'
                     }, {
                       type: 'uri',
                       label: 'View detail',
@@ -87,13 +83,9 @@ bot.on('message', function (event) {
                       label: 'Add to cart',
                       data: 'action=add&itemid=111'
                     }, {
-                      type: 'postback',
-                      label: 'Add to cart',
-                      data: 'action=add&itemid=111'
-                    }, {
-                      type: 'postback',
-                      label: 'Add to cart',
-                      data: 'action=add&itemid=111'
+                      type: 'uri',
+                      label: 'View detail',
+                      uri: 'http://example.com/page/111'
                     }]
                   }]
                 }
