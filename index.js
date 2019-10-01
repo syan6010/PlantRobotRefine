@@ -56,79 +56,81 @@ bot.on('message', function (event) {
           switch (step) {
             case 0 :
               updateData(lineId, "deviceId", msg);
-              event.reply({
-                type: 'template',
-                altText: 'this is a carousel template',
-                template: {
-                  type: 'carousel',
-                  columns: [{
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-                    title: '多肉植物',
-                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
-                    }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
-                    title: '芋科室內植物',
-                    text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
-                    }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-                    title: '多肉植物',
-                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
-                    }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-                    title: '多肉植物',
-                    text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
-                    }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-                    title: '多肉植物',
-                    text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
-                    actions: [{
-                      type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
-                    }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
-                    }]
-                  }]
-                }
-              });        
+              event.reply('輸入植物種類')
+              // event.reply({
+              //   type: 'template',
+              //   altText: 'this is a carousel template',
+              //   template: {
+              //     type: 'carousel',
+              //     columns: [{
+              //       thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+              //       title: '多肉植物',
+              //       text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
+              //       actions: [{
+              //         type: 'message',
+              //         label: '選擇',
+              //         text: '多肉植物'
+              //       }, {
+              //         type: 'uri',
+              //         label: 'View detail',
+              //         uri: 'http://example.com/page/111'
+              //       }]
+              //     }, {
+              //       thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
+              //       title: '芋科室內植物',
+              //       text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
+              //       actions: [{
+              //         type: 'message',
+              //         label: '選擇',
+              //         text: '多肉植物'
+              //       }, {
+              //         type: 'uri',
+              //         label: 'View detail',
+              //         uri: 'http://example.com/page/111'
+              //       }]
+              //     }, {
+              //       thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+              //       title: '多肉植物',
+              //       text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
+              //       actions: [{
+              //         type: 'message',
+              //         label: '選擇',
+              //         text: '多肉植物'
+              //       }, {
+              //         type: 'uri',
+              //         label: 'View detail',
+              //         uri: 'http://example.com/page/111'
+              //       }]
+              //     }, {
+              //       thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+              //       title: '多肉植物',
+              //       text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
+              //       actions: [{
+              //         type: 'message',
+              //         label: '選擇',
+              //         text: '多肉植物'
+              //       }, {
+              //         type: 'uri',
+              //         label: 'View detail',
+              //         uri: 'http://example.com/page/111'
+              //       }]
+              //     }, {
+              //       thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+              //       title: '多肉植物',
+              //       text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
+              //       actions: [{
+              //         type: 'message',
+              //         label: '選擇',
+              //         text: '多肉植物'
+              //       }, {
+              //         type: 'uri',
+              //         label: 'View detail',
+              //         uri: 'http://example.com/page/111'
+              //       }]
+              //     }]
+              //   }
+              // });  
+
               // event.reply({
               //   type: 'template',
               //   altText: 'this is a carousel template',
