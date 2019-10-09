@@ -179,24 +179,34 @@ bot.on('message', function (event) {
                       switch(p_type) {
                         case '虎尾蘭':
                           event.reply('虎尾蘭');
+                          break;
                         case '仙人掌':
                           event.reply('仙人掌');
+                          break;
                         case '黃金葛':
                           event.reply('黃金葛');
+                          break;
                         case '合果芋':
                           event.reply('合果芋');
+                          break;
                         case '茉莉花':
                           event.reply('茉莉花');
+                          break;
                         case '百合花':
                           event.reply('百合花');
+                          break;
                         case '薄荷':
                           event.reply('薄荷');
+                          break;
                         case '迷迭香':
                           event.reply('迷迭香');
+                          break;
                         case '橡皮樹':
                           event.reply('橡皮樹');
+                          break;
                         case '發財樹':
                           event.reply('發財樹'); 
+                          break;
                         default:
                           event.reply('現在還沒有支援這種植物喔！抱歉');                       
                       }
