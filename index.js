@@ -89,7 +89,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+                    thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
                     title: '香花植物',
                     text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
                     actions: [{
