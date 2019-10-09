@@ -124,86 +124,12 @@ bot.on('message', function (event) {
                       text: '橡皮樹'
                     }, {
                       type: 'message',
-                      label: '橡皮樹',
-                      text: '橡皮樹'
+                      label: '發財樹',
+                      text: '發財樹'
                     }]
                   }]
                 }
               });  
-
-              // event.reply({
-              //   type: 'template',
-              //   altText: 'this is a carousel template',
-              //   template: {
-              //     type: 'carousel',
-              //     columns: [{
-              //       thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
-              //       title: '多肉植物',
-              //       text: '多肉植物又被稱作肉質植物，像是虎尾蘭,蘆薈,仙人掌等',
-              //       actions: [{
-              //         type: 'message',
-              //         label: '選擇',
-              //         text: '多肉植物'
-              //       }, {
-              //         type: 'uri',
-              //         label: '培育技巧',
-              //         uri: 'http://example.com/page/111'
-              //       }]
-              //     }, {
-              //       thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
-              //       title: '芋科室內植物',
-              //       text: '是單子葉植物薑目的一科，像是黃金葛,合果芋等',
-              //       actions: [{
-              //         type: 'message',
-              //         label: '選擇',
-              //         text: '芋科室內植物'
-              //       }, {
-              //         type: 'uri',
-              //         label: '培育技巧',
-              //         uri: 'http://example.com/page/111'
-              //       }]
-              //     }, {
-              //       thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
-              //       title: '香花植物',
-              //       text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
-              //       actions: [{
-              //         type: 'message',
-              //         label: '選擇',
-              //         text: '香花植物'
-              //       }, {
-              //         type: 'uri',
-              //         label: '培育技巧',
-              //         uri: 'http://example.com/page/111'
-              //       }]
-              //     }, {
-              //       thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_2.jpg',
-              //       title: '香草植物',
-              //       text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
-              //       actions: [{
-              //         type: 'message',
-              //         label: '選擇',
-              //         text: '香草植物'
-              //       }, {
-              //         type: 'uri',
-              //         label: '培育技巧',
-              //         uri: 'http://example.com/page/111'
-              //       }]
-              //     }, {
-              //       thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_0.jpg',
-              //       title: '大型室内植物',
-              //       text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
-              //       actions: [{
-              //         type: 'message',
-              //         label: '選擇',
-              //         text: '大型室内植物'
-              //       }, {
-              //         type: 'uri',
-              //         label: '培育技巧',
-              //         uri: 'http://example.com/page/111'
-              //       }]
-              //     }]
-              //   }
-              // });
               break;
             case 1:
               if(mini.includes(msg)) { 
@@ -246,48 +172,7 @@ bot.on('message', function (event) {
             default :
               switch (msg) {
                 case '如何照顧我' :
-                  event.reply({
-                    type: 'template',
-                    altText: 'this is a carousel template',
-                    template: {
-                      type: 'carousel',
-                      columns: [{
-                        thumbnailImageUrl: 'https://example.com/bot/images/item1.jpg',
-                        title: 'this is menu',
-                        text: 'description',
-                        actions: [{
-                          type: 'postback',
-                          label: 'Buy',
-                          data: 'action=buy&itemid=111'
-                        }, {
-                          type: 'postback',
-                          label: 'Add to cart',
-                          data: 'action=add&itemid=111'
-                        }, {
-                          type: 'uri',
-                          label: 'View detail',
-                          uri: 'http://example.com/page/111'
-                        }]
-                      }, {
-                        thumbnailImageUrl: 'https://example.com/bot/images/item2.jpg',
-                        title: 'this is menu',
-                        text: 'description',
-                        actions: [{
-                          type: 'postback',
-                          label: 'Buy',
-                          data: 'action=buy&itemid=222'
-                        }, {
-                          type: 'postback',
-                          label: 'Add to cart',
-                          data: 'action=add&itemid=222'
-                        }, {
-                          type: 'uri',
-                          label: 'View detail',
-                          uri: 'http://example.com/page/222'
-                        }]
-                      }]
-                    }
-                  });
+                  event.reply('i cant do this!!')
                   break;
                 case '重設' :
                   step = -1
