@@ -89,7 +89,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
+                    thumbnailImageUrl: 'https://i1.wp.com/pic2.zhimg.com/50/8c5a9a9b736325f94cdad603a0834659_hd.jpg',
                     title: '香花植物',
                     text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
                     actions: [{
