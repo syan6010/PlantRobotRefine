@@ -89,7 +89,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'http://i.epochtimes.com/assets/uploads/2017/12/rose-2885586_1920-600x450.jpg',
+                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
                     title: '香花植物',
                     text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
                     actions: [{
@@ -102,7 +102,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
+                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
                     title: '香草植物',
                     text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
                     actions: [{
