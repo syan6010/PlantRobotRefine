@@ -94,12 +94,12 @@ bot.on('message', function (event) {
                     text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
                     actions: [{
                       type: 'message',
-                      label: '黃金葛',
-                      text: '黃金葛'
+                      label: '茉莉花',
+                      text: '茉莉花'
                     }, {
                       type: 'message',
-                      label: '合果芋',
-                      text: '合果芋'
+                      label: '百合花',
+                      text: '百合花'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://pic.pimg.tw/mylifestyle/1430817274-2702571739.jpg',
@@ -107,12 +107,12 @@ bot.on('message', function (event) {
                     text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
                     actions: [{
                       type: 'message',
-                      label: '黃金葛',
-                      text: '黃金葛'
+                      label: '薄荷',
+                      text: '薄荷'
                     }, {
                       type: 'message',
-                      label: '合果芋',
-                      text: '合果芋'
+                      label: '迷迭香',
+                      text: '迷迭香'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://mmbiz.qpic.cn/mmbiz_jpg/7xdDOnvI6TjZY3SmWIZh6YWbII9ibpldk3syNPO6tjNwlYZIfZRmgE4ib2RZlWLpkvM2GEfHE4kxgYpuDShnahSg/640?wx_fmt=jpeg',
@@ -120,12 +120,12 @@ bot.on('message', function (event) {
                     text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
                     actions: [{
                       type: 'message',
-                      label: '黃金葛',
-                      text: '黃金葛'
+                      label: '橡皮樹',
+                      text: '橡皮樹'
                     }, {
                       type: 'message',
-                      label: '合果芋',
-                      text: '合果芋'
+                      label: '橡皮樹',
+                      text: '橡皮樹'
                     }]
                   }]
                 }
