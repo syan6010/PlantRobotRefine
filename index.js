@@ -46,6 +46,7 @@ bot.on('message', function (event) {
   if (event.message.type === 'text') {
     let lineId = event.source.userId
     let ref = firebase.database().ref(`user_device/${lineId}/step`)
+    let ref_pt = firebase.database().ref(`user_device/${lineId}/plantType`)
     let msg = event.message.text
 
 
@@ -172,7 +173,34 @@ bot.on('message', function (event) {
             default :
               switch (msg) {
                 case '如何照顧我' :
-                  event.reply('i cant do this!!')
+                  ref_pt.once('value')
+                    .then(function(snapshot) {
+                      let p_type = snapshot.val();
+                      switch(p_type) {
+                        case '虎尾蘭':
+                          event.reply('虎尾蘭');
+                        case '仙人掌':
+                          event.reply('仙人掌');
+                        case '黃金葛':
+                          event.reply('黃金葛');
+                        case '合果芋':
+                          event.reply('合果芋');
+                        case '茉莉花':
+                          event.reply('茉莉花');
+                        case '百合花':
+                          event.reply('百合花');
+                        case '薄荷':
+                          event.reply('薄荷');
+                        case '迷迭香':
+                          event.reply('迷迭香');
+                        case '橡皮樹':
+                          event.reply('橡皮樹');
+                        case '發財樹':
+                          event.reply('發財樹'); 
+                        default:
+                          event.reply('現在還沒有支援這種植物喔！抱歉');                       
+                      }
+                    })
                   break;
                 case '重設' :
                   step = -1
