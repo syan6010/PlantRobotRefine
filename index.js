@@ -102,7 +102,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+                    thumbnailImageUrl: 'https://pic.pimg.tw/mylifestyle/1430817274-2702571739.jpg',
                     title: '香草植物',
                     text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
                     actions: [{
@@ -115,7 +115,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'https://succuland.com.tw/wp-content/uploads/2016/05/DSC_0341-1024x686.jpg',
+                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_1.jpg',
                     title: '大型室内植物',
                     text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
                     actions: [{
