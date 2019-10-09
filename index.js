@@ -115,7 +115,7 @@ bot.on('message', function (event) {
                       uri: 'http://example.com/page/111'
                     }]
                   }, {
-                    thumbnailImageUrl: 'http://decomyplace.com/img/blog/170202_urbanjungle_1.jpg',
+                    thumbnailImageUrl: 'https://i1.wp.com/pic2.zhimg.com/50/8c5a9a9b736325f94cdad603a0834659_hd.jpg',
                     title: '大型室内植物',
                     text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
                     actions: [{
