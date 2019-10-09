@@ -74,10 +74,6 @@ bot.on('message', function (event) {
                       type: 'message',
                       label: '仙人掌',
                       text: '仙人掌'
-                    }, {
-                      type: 'message',
-                      label: '蘆薈',
-                      text: '蘆薈'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://static.betweengos.com/wp-content/uploads/2016/09/淨化空氣盆栽植物-1.jpg',
@@ -98,12 +94,12 @@ bot.on('message', function (event) {
                     text: '花朵清芳幽雅，用途極多，如茉莉花, 百合花, 玫瑰花',
                     actions: [{
                       type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
+                      label: '黃金葛',
+                      text: '黃金葛'
                     }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
+                      type: 'message',
+                      label: '合果芋',
+                      text: '合果芋'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://pic.pimg.tw/mylifestyle/1430817274-2702571739.jpg',
@@ -111,12 +107,12 @@ bot.on('message', function (event) {
                     text: '香料植物，是指因為其香氣而用在食物、調味品、藥品及香料中的植物，如薄荷,迷迭香',
                     actions: [{
                       type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
+                      label: '黃金葛',
+                      text: '黃金葛'
                     }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
+                      type: 'message',
+                      label: '合果芋',
+                      text: '合果芋'
                     }]
                   }, {
                     thumbnailImageUrl: 'https://mmbiz.qpic.cn/mmbiz_jpg/7xdDOnvI6TjZY3SmWIZh6YWbII9ibpldk3syNPO6tjNwlYZIfZRmgE4ib2RZlWLpkvM2GEfHE4kxgYpuDShnahSg/640?wx_fmt=jpeg',
@@ -124,12 +120,12 @@ bot.on('message', function (event) {
                     text: '許多大型室內植物天生對生存環境接受度非常廣，如橡皮樹, 發財樹',
                     actions: [{
                       type: 'message',
-                      label: '選擇',
-                      text: '多肉植物'
+                      label: '黃金葛',
+                      text: '黃金葛'
                     }, {
-                      type: 'uri',
-                      label: 'View detail',
-                      uri: 'http://example.com/page/111'
+                      type: 'message',
+                      label: '合果芋',
+                      text: '合果芋'
                     }]
                   }]
                 }
