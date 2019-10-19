@@ -222,7 +222,7 @@ bot.on('message', function (event) {
                   event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！!！')
                   break;
                 case 'today' :
-                  event.reply(`${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`)
+                  event.reply(`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`)
                   break;
                 default :
                   event.reply('i cant do this!!')
