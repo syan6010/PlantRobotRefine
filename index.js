@@ -284,6 +284,7 @@ const  scheduleCronstyle = ()=>{
                 snapshot.forEach(function (childSnapshot) {
                   let dht = childSnapshot.child("dht").val()
                   dht_tot += dht 
+                  console.log(`dht = ${dht}, dhttot = ${dht_tot}`)
                 })
               })
             new_evo_ref.once('value')
