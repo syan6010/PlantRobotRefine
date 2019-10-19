@@ -36,7 +36,12 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 
 let line_id_ref = firebase.database().ref(`user_device`)
-let plant_ref = firebase.database().ref(`plant_condition/123/2019-8-22`)
+let plant_ref = firebase.database().ref(`plant_condition`)
+let environment_ref = firebase.database().ref(`environment_condition`)
+
+let dht_tot = 0;
+let temperature_tot = 0;
+const today = new Date();
 
 
 
@@ -216,6 +221,8 @@ bot.on('message', function (event) {
                   step = -1
                   event.reply('你好!!歡迎來到plantRobot!!第一次設定需要輸入webduino裝置的ID才可以讓我順利上網歐！!！')
                   break;
+                case 'today' :
+                  event.reply(`${today.getMonth()}`)
                 default :
                   event.reply('i cant do this!!')
               }
@@ -260,49 +267,58 @@ let initData = (lineId) => {
 
 
 
-const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 58 * * * *',()=>{
-      plant_ref.once('value')
-        .then(function(snapshot){
-          snapshot.forEach(function (childSnapshot){
-            let dht = childSnapshot.child("dht").val()
-            console.log(dht)
-            bot.push("U0b6e923254483d85b37802373341c02d", `${dht}`)
-          })
-        })
+// const  scheduleCronstyle = ()=>{
+//     schedule.scheduleJob('30 58 * * * *',()=>{
+//       plant_ref.once('value')
+//         .then(function(snapshot){
+//           snapshot.forEach(function (childSnapshot){
+//             let dht = childSnapshot.child("dht").val()
+//             dht_tot += dht
+
+//             bot.push("U0b6e923254483d85b37802373341c02d", `${dht}`)
+//           })
+//         })
 
 
-      line_id_ref.once('value')
-        .then(function(snapshot){
-          snapshot.forEach(function(childSnapshot){
-            let each_id = childSnapshot.key
-            let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
-            each_plant_type.once('value')
-              .then(function(snapshot){
-                let p_type = snapshot.val()
-                if(mini.includes(p_type)) { 
-                  bot.push(each_id, '多肉植物')
-                } 
-                else if(mini_a.includes(p_type)){
-                  bot.push(each_id, '芋科室內植物')
-                }
-                else if(large.includes(p_type)){
-                  bot.push(each_id, '香花植物')
-                }
-                else if(large_a.includes(p_type)){
-                  bot.push(each_id, '香草植物')
-                }
-                else if(large_b.includes(p_type)){
-                  bot.push(each_id, '大型室内植物')
-                }
-                else {
-                  bot.push(each_id, '????')
-                }
-              })
+//       line_id_ref.once('value')
+//         .then(function(snapshot){
+//           snapshot.forEach(function(childSnapshot){
+//             let each_id = childSnapshot.key
+//             let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
+//             each_plant_type.once('value')
+//               .then(function(snapshot){
+//                 let p_type = snapshot.val()
+//                 if(mini.includes(p_type)) { 
+//                   bot.push(each_id, '多肉植物')                 
+//                 } 
+//                 else if(mini_a.includes(p_type)){
+//                   bot.push(each_id, '芋科室內植物')
+//                 }
+//                 else if(large.includes(p_type)){
+//                   bot.push(each_id, '香花植物')
+//                 }
+//                 else if(large_a.includes(p_type)){
+//                   bot.push(each_id, '香草植物')
+//                 }
+//                 else if(large_b.includes(p_type)){
+//                   bot.push(each_id, '大型室内植物')
+//                 }
+//                 else {
+//                   bot.push(each_id, '????')
+//                 }
+//               })
       
-          })  
-        })
-    }); 
-}
+//           })  
+//         })
+//     }); 
+// }
+
+// const  scheduleCronstyle_water_notice = ()=>{
+//   schedule.scheduleJob('30 58 * * * *',()=>{
+    
+//   })
+// }
+
+
 
 scheduleCronstyle();
