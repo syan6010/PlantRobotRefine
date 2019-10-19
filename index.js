@@ -311,9 +311,9 @@ const  scheduleCronstyle = ()=>{
               bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
             }
 
-            dht_tot = 0;
-            humidity_tot = 0;
-            temperature_tot = 0;
+            // dht_tot = 0;
+            // humidity_tot = 0;
+            // temperature_tot = 0;
           })
         })
       
