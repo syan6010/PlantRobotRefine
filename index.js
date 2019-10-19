@@ -269,13 +269,16 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 10 * * * *',()=>{
-      let dht_tot = 0;
-      let temperature_tot = 0;
-      let humidity_tot = 0;
+    schedule.scheduleJob('30 15 * * * *',()=>{
+      // let dht_tot = 0;
+      // let temperature_tot = 0;
+      // let humidity_tot = 0;
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(function (childSnapshot){
+            let dht_tot = 0;
+            let temperature_tot = 0;
+            let humidity_tot = 0;
             let each_id = childSnapshot.key
             let new_plant_ref = firebase.database().ref(`/plant_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`)
             let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`)
