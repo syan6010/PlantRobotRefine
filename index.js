@@ -37,10 +37,10 @@ var large_b = ["橡皮樹", "發財樹"]; //大型室内植物
 
 let line_id_ref = firebase.database().ref(`user_device`)
 let plant_ref = firebase.database().ref(`plant_condition`)
-let environment_ref = firebase.database().ref(`environment_condition`)
 
-let dht_tot = 0;
-let temperature_tot = 0;
+
+
+
 const today = new Date();
 
 
@@ -269,21 +269,49 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 58 * * * *',()=>{
+    schedule.scheduleJob('30 38 * * * *',()=>{
+      let dht_tot = 0;
+      let temperature_tot = 0;
+      let humidity_tot = 0;
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(function (childSnapshot){
             let each_id = childSnapshot.key
             let new_plant_ref = firebase.database().ref(`/plant_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`)
+            let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`)
             new_plant_ref.once('value')
               .then(function(snapshot) {
                 snapshot.forEach(function (childSnapshot) {
                   let dht = childSnapshot.child("dht").val()
-                  bot.push(each_id, `${dht}`)
+                  dht_tot += dht 
                 })
               })
+            new_evo_ref.once('value')
+              .then(function(snapshot){
+                snapshot.forEach(function (childSnapshot) {
+                  let c_humidity = childSnapshot.child("humidity").val()
+                  let c_temperature = childSnapshot.child("emperature").val()
+                  humidity_tot += c_humidity
+                  temperature_tot += c_temperature
+          
+                })
+              })
+            if(dht_tot/2 + 40 >= 70 && temperature_tot/2 > 15 && humidity_tot/2 > 15){
+              bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
+            }
+            else if(dht_tot/2 + 40 > 40 && dht_tot/2 + 40 < 70 && temperature_tot/2 > 15 && humidity_tot/2 > 15){
+              bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
+            } 
+            else {
+              bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
+            }
+
+            dht_tot = 0;
+            humidity_tot = 0;
+            temperature_tot = 0;
           })
         })
+      
 
 
       // line_id_ref.once('value')
