@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 53 * * * *',()=>{
+    schedule.scheduleJob('30 56 * * * *',()=>{
       let dht_tot = 0;
       let temperature_tot = 0;
       let humidity_tot = 0;
