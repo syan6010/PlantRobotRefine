@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 06 * * * *', ()=>{
+    schedule.scheduleJob('30 10 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
