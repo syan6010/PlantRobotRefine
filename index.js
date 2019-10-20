@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 50 * * * *', ()=>{
+    schedule.scheduleJob('30 02 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -331,45 +331,55 @@ const  scheduleCronstyle = ()=>{
           })
         })
       
-
-
-      // line_id_ref.once('value')
-      //   .then(function(snapshot){
-      //     snapshot.forEach(function(childSnapshot){
-      //       let each_id = childSnapshot.key
-      //       let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
-      //       each_plant_type.once('value')
-      //         .then(function(snapshot){
-      //           let p_type = snapshot.val()
-      //           if(mini.includes(p_type)) { 
-      //             bot.push(each_id, '多肉植物')                 
-      //           } 
-      //           else if(mini_a.includes(p_type)){
-      //             bot.push(each_id, '芋科室內植物')
-      //           }
-      //           else if(large.includes(p_type)){
-      //             bot.push(each_id, '香花植物')
-      //           }
-      //           else if(large_a.includes(p_type)){
-      //             bot.push(each_id, '香草植物')
-      //           }
-      //           else if(large_b.includes(p_type)){
-      //             bot.push(each_id, '大型室内植物')
-      //           }
-      //           else {
-      //             bot.push(each_id, '????')
-      //           }
-      //         })
-      
-      //     })  
-      //   })
     }); 
 }
 
+
+line_id_ref.once('value')
+  .then(function(snapshot){
+    snapshot.forEach(function(childSnapshot){
+      let each_id = childSnapshot.key
+      let each_plant_type = firebase.database().ref(`user_device/${each_id}/plantType`)
+      each_plant_type.once('value')
+        .then(function(snapshot){
+          let p_type = snapshot.val()
+          if(mini.includes(p_type)) { 
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '多肉植物記得澆水嘍')           
+            })      
+          } 
+          else if(mini_a.includes(p_type)){
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '芋科室內植物記得澆水嘍')       
+            }) 
+          }
+          else if(large.includes(p_type)){
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '香花植物記得澆水嘍')         
+            }) 
+          }
+          else if(large_a.includes(p_type)){
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '香草植物記得澆水嘍')         
+            }) 
+          }
+          else if(large_b.includes(p_type)){
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '大型室内植物記得澆水嘍')         
+            }) 
+          }
+          else {
+            schedule.scheduleJob('30 02 * * * *',()=>{
+              bot.push(each_id, '????')         
+            }) 
+          }
+        })
+
+    })  
+  })
+
 // const  scheduleCronstyle_water_notice = ()=>{
-//   schedule.scheduleJob('30 58 * * * *',()=>{
-    
-//   })
+
 // }
 
 
