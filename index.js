@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 30 * * * *', ()=>{
+    schedule.scheduleJob('30 21 * * * *', ()=>{
       let dht_tot = 0;
       let temperature_tot = 0;
       let humidity_tot = 0;
@@ -286,7 +286,7 @@ const  scheduleCronstyle = ()=>{
               .then(function(snapshot) {
                 snapshot.forEach(function (childSnapshot) {
                   let dht = childSnapshot.child("dht").val()
-                  dht_tot += await dht 
+                  dht_tot += dht 
                   console.log(dht_tot)
                   console.log('2')
                 })
@@ -296,8 +296,8 @@ const  scheduleCronstyle = ()=>{
                 snapshot.forEach(function (childSnapshot) {
                   let c_humidity = childSnapshot.child("humidity").val()
                   let c_temperature = childSnapshot.child("temperature").val()
-                   += await c_humidity
-                  temperature_tot += await c_temperature
+                  humidity_tot += c_humidity
+                  temperature_tot += c_temperature
                   console.log(`${temperature_tot} , ${humidity_tot}`)
                   console.log('3')
           
