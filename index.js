@@ -306,19 +306,25 @@ const  scheduleCronstyle = ()=>{
               })
             }
 
+            let push_fun = async () => {
+              console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
+              if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
+                bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
+              }
+              else if(dht_tot/2 + 40 > 40 && dht_tot/2 + 40 < 70 && temperature_tot/2 > 15 && humidity_tot/2 > 15){
+                bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
+              } 
+              else {
+                bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
+              }
+            }
+
             await for_add_dht()
             await for_add_t_h()
+            await push_fun()
 
-            console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
-            if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
-              bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
-            }
-            else if(dht_tot/2 + 40 > 40 && dht_tot/2 + 40 < 70 && temperature_tot/2 > 15 && humidity_tot/2 > 15){
-              bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
-            } 
-            else {
-              bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
-            }
+
+
 
 
             // dht_tot = 0;
