@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 02 * * * *', ()=>{
+    schedule.scheduleJob('30 15 11 * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -284,11 +284,11 @@ const  scheduleCronstyle = ()=>{
               if(dht_tot + 40 >= 70){
                 bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的總體溫濕度指標為${dht_tot + 40}分，符合標準`)
               }
-              else if(dht_tot/4 + 40 > 40 && dht_tot/2 + 40 < 70){
-                bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
+              else if(dht_tot/4 + 40 > 40 && dht_tot/4 + 40 < 70){
+                bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的總體溫濕度指標為${dht_tot/4 + 40}分，符合標準`)
               } 
               else {
-                bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
+                bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的總體溫濕度指標為${dht_tot/4 + 40}分，不符合標準`)
               }
             }
             new_plant_ref.once('value')
@@ -349,27 +349,27 @@ line_id_ref.once('value')
             })      
           } 
           else if(mini_a.includes(p_type)){
-            schedule.scheduleJob('30 02 * * * *',()=>{
+            schedule.scheduleJob('30 02 * * 10 *',()=>{
               bot.push(each_id, '芋科室內植物記得澆水嘍')       
             }) 
           }
           else if(large.includes(p_type)){
-            schedule.scheduleJob('30 02 * * * *',()=>{
+            schedule.scheduleJob('30 02 * * 10 *',()=>{
               bot.push(each_id, '香花植物記得澆水嘍')         
             }) 
           }
           else if(large_a.includes(p_type)){
-            schedule.scheduleJob('30 02 * * * *',()=>{
+            schedule.scheduleJob('30 02 * * * 0',()=>{
               bot.push(each_id, '香草植物記得澆水嘍')         
             }) 
           }
           else if(large_b.includes(p_type)){
-            schedule.scheduleJob('30 02 * * * *',()=>{
+            schedule.scheduleJob('30 02 * * * 0',()=>{
               bot.push(each_id, '大型室内植物記得澆水嘍')         
             }) 
           }
           else {
-            schedule.scheduleJob('30 02 * * * *',()=>{
+            schedule.scheduleJob('30 15 11 * * *',()=>{
               bot.push(each_id, '????')         
             }) 
           }
