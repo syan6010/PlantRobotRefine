@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 36 * * * *', ()=>{
+    schedule.scheduleJob('30 40 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(function (childSnapshot){
@@ -281,20 +281,20 @@ const  scheduleCronstyle = ()=>{
             let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-1}`)
             new_plant_ref.once('value')
               .then(function(snapshot) {
-                snapshot.forEach(function (childSnapshot) {
-                  let dht = childSnapshot.child("dht").val()
-                  dht_tot += dht 
+                snapshot.forEach(async function (childSnapshot) {
+                  let dht = await childSnapshot.child("dht").val()
+                  dht_tot += await dht 
                   console.log(dht_tot)
                   console.log('2')
                 })
               })
             new_evo_ref.once('value')
               .then(function(snapshot){
-                snapshot.forEach(function (childSnapshot) {
-                  let c_humidity = childSnapshot.child("humidity").val()
-                  let c_temperature = childSnapshot.child("temperature").val()
-                  humidity_tot += c_humidity
-                  temperature_tot += c_temperature
+                snapshot.forEach(async function (childSnapshot) {
+                  let c_humidity = await childSnapshot.child("humidity").val()
+                  let c_temperature = await childSnapshot.child("temperature").val()
+                  humidity_tot += await c_humidity
+                  temperature_tot += await c_temperature
                   console.log(`${temperature_tot} , ${humidity_tot}`)
                   console.log('3')
           
