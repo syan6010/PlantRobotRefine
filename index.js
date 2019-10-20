@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 58 * * * *',()=>{
+    schedule.scheduleJob('30 01 * * * *',()=>{
       // let dht_tot = 0;
       // let temperature_tot = 0;
       // let humidity_tot = 0;
@@ -287,8 +287,8 @@ const  scheduleCronstyle = ()=>{
                 snapshot.forEach(function (childSnapshot) {
                   let dht = childSnapshot.child("dht").val()
                   dht_tot += dht 
-                  console.log('2')
                   console.log(dht_tot)
+                  console.log('2')
                 })
               })
             new_evo_ref.once('value')
@@ -298,22 +298,20 @@ const  scheduleCronstyle = ()=>{
                   let c_temperature = childSnapshot.child("temperature").val()
                   humidity_tot += c_humidity
                   temperature_tot += c_temperature
-                  console.log('3')
                   console.log(`${temperature_tot} , ${humidity_tot}`)
+                  console.log('3')
           
                 })
               })
             console.log('1')
             console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
             if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
-              console.log(dht_tot)
               bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
             }
             else if(dht_tot/2 + 40 > 40 && dht_tot/2 + 40 < 70 && temperature_tot/2 > 15 && humidity_tot/2 > 15){
               bot.push(each_id, `狀況普通！可以上我們的網站獲取植物冷知識，讓我變的更健康！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，符合標準`)
             } 
             else {
-              console.log(dht_tot)
               bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
             }
 
