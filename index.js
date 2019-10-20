@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 22 * * * *', ()=>{
+    schedule.scheduleJob('30 26 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -344,7 +344,7 @@ line_id_ref.once('value')
         .then(function(snapshot){
           let p_type = snapshot.val()
           if(mini.includes(p_type)) { 
-            schedule.scheduleJob('30 19 * * * *',()=>{
+            schedule.scheduleJob('30 26 * * * *',()=>{
               bot.push(each_id, '多肉植物記得澆水嘍')           
             })      
           } 
