@@ -300,12 +300,9 @@ const  scheduleCronstyle = ()=>{
           
                 })
               })
-            let dht_tot_catch =  dht_tot;
-            let temperature_tot_catch =  c_temperature;
-            let humidity_tot_catch = c_humidity;
 
             console.log('1')
-            console.log(`dht = ${dht_tot_catch}, h = ${humidity_tot_catch}, t= ${temperature_tot_catch}`)
+            console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
             if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
               bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
             }
