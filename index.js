@@ -268,8 +268,8 @@ let initData = (lineId) => {
 
 
 
-const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 04 * * * *',()=>{
+const  scheduleCronstyle = async ()=>{
+    schedule.scheduleJob('30 10 * * * *',()=>{
       // let dht_tot = 0;
       // let temperature_tot = 0;
       // let humidity_tot = 0;
@@ -304,7 +304,7 @@ const  scheduleCronstyle = ()=>{
                 })
               })
             console.log('1')
-            console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
+            console.log(`dht = ${await dht_tot}, h = ${await humidity_tot}, t= ${ await temperature_tot}`)
             if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
               bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
             }
