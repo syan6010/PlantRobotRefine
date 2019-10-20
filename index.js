@@ -268,14 +268,14 @@ let initData = (lineId) => {
 
 
 
-const  scheduleCronstyle = async ()=>{
-    schedule.scheduleJob('30 21 * * * *',()=>{
-      // let dht_tot = 0;
-      // let temperature_tot = 0;
-      // let humidity_tot = 0;
+const  scheduleCronstyle = ()=>{
+    schedule.scheduleJob('30 21 * * * *', ()=>{
+      let dht_tot = 0;
+      let temperature_tot = 0;
+      let humidity_tot = 0;
       plant_ref.once('value')
         .then(function(snapshot){
-          snapshot.forEach(function (childSnapshot){
+          snapshot.forEach(async function (childSnapshot){
             let dht_tot = 0;
             let temperature_tot = 0;
             let humidity_tot = 0;
@@ -296,16 +296,19 @@ const  scheduleCronstyle = async ()=>{
                 snapshot.forEach(function (childSnapshot) {
                   let c_humidity = childSnapshot.child("humidity").val()
                   let c_temperature = childSnapshot.child("temperature").val()
-                  humidity_tot += await c_humidity
+                   += await c_humidity
                   temperature_tot += await c_temperature
                   console.log(`${temperature_tot} , ${humidity_tot}`)
                   console.log('3')
           
                 })
               })
-            
+            let dht_tot_catch = await dht_tot;
+            let temperature_tot_catch = await c_temperature;
+            let humidity_tot_catch = await c_humidity;
+
             console.log('1')
-            console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
+            console.log(`dht = ${dht_tot_catch}, h = ${humidity_tot_catch}, t= ${temperature_tot_catch}`)
             if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
               bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
             }
