@@ -268,8 +268,8 @@ let initData = (lineId) => {
 
 
 
-const  scheduleCronstyle = async ()=>{
-    schedule.scheduleJob('30 13 * * * *',()=>{
+const  scheduleCronstyle = ()=>{
+    schedule.scheduleJob('30 16 * * * *',()=>{
       // let dht_tot = 0;
       // let temperature_tot = 0;
       // let humidity_tot = 0;
@@ -285,7 +285,7 @@ const  scheduleCronstyle = async ()=>{
             new_plant_ref.once('value')
               .then(function(snapshot) {
                 snapshot.forEach(function (childSnapshot) {
-                  let dht = await childSnapshot.child("dht").val()
+                  let dht = childSnapshot.child("dht").val()
                   dht_tot += dht 
                   console.log(dht_tot)
                   console.log('2')
@@ -294,8 +294,8 @@ const  scheduleCronstyle = async ()=>{
             new_evo_ref.once('value')
               .then(function(snapshot){
                 snapshot.forEach(function (childSnapshot) {
-                  let c_humidity = await childSnapshot.child("humidity").val()
-                  let c_temperature = await childSnapshot.child("temperature").val()
+                  let c_humidity = childSnapshot.child("humidity").val()
+                  let c_temperature = childSnapshot.child("temperature").val()
                   humidity_tot += c_humidity
                   temperature_tot += c_temperature
                   console.log(`${temperature_tot} , ${humidity_tot}`)
