@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 14 * * * *', ()=>{
+    schedule.scheduleJob('30 17 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -318,10 +318,10 @@ const  scheduleCronstyle = ()=>{
                 bot.push(each_id, `狀況不太好欸！可以上我們的網站獲取植物冷知識，加油吧！今天我的平均溫度是${temperature_tot/2}, 濕度是${humidity_tot/2}, 總體溫濕度指標為${dht_tot/2 + 40}分，不符合標準`)
               }
             }
-
+            await push_fun()
             await for_add_dht()
             await for_add_t_h()
-            await push_fun()
+
 
             // dht_tot = 0;
             // humidity_tot = 0;
