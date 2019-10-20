@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = async ()=>{
-    schedule.scheduleJob('30 16 * * * *',()=>{
+    schedule.scheduleJob('30 21 * * * *',()=>{
       // let dht_tot = 0;
       // let temperature_tot = 0;
       // let humidity_tot = 0;
