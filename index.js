@@ -280,7 +280,7 @@ const  scheduleCronstyle = ()=>{
             let new_plant_ref = firebase.database().ref(`/plant_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-1}`)
             let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-1}`)
 
-            let for_add_dht = async() => {
+            let for_add_dht = () => {
               new_plant_ref.once('value')
               .then(function(snapshot) {
                 snapshot.forEach(function (childSnapshot) {
@@ -292,7 +292,7 @@ const  scheduleCronstyle = ()=>{
               })
             }
 
-            let for_add_t_h = async() => {
+            let for_add_t_h = () => {
               new_evo_ref.once('value')
               .then(function(snapshot){
                 snapshot.forEach(function (childSnapshot) {
@@ -306,7 +306,7 @@ const  scheduleCronstyle = ()=>{
               })
             }
 
-            let push_fun = async () => {
+            let push_fun = () => {
               console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
               if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
                 bot.push(each_id, `狀況極佳！請繼續保持喔！今天我的平均溫度是${temperature_tot}, 濕度是${humidity_tot}, 總體溫濕度指標為${dht_tot + 40}分，符合標準`)
