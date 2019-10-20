@@ -287,6 +287,7 @@ const  scheduleCronstyle = ()=>{
                 snapshot.forEach(function (childSnapshot) {
                   let dht = childSnapshot.child("dht").val()
                   dht_tot += dht 
+                  console.log('2')
                   console.log(dht_tot)
                 })
               })
@@ -297,10 +298,12 @@ const  scheduleCronstyle = ()=>{
                   let c_temperature = childSnapshot.child("temperature").val()
                   humidity_tot += c_humidity
                   temperature_tot += c_temperature
+                  console.log('3')
                   console.log(`${temperature_tot} , ${humidity_tot}`)
           
                 })
               })
+            console.log('1')
             console.log(`dht = ${dht_tot}, h = ${humidity_tot}, t= ${temperature_tot}`)
             if(dht_tot + 40 >= 70 && temperature_tot > 15 && humidity_tot > 15){
               console.log(dht_tot)
