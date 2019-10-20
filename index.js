@@ -269,10 +269,10 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 27 * * * *', ()=>{
+    schedule.scheduleJob('30 33 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
-          snapshot.forEach(async function (childSnapshot){
+          snapshot.forEach(function (childSnapshot){
             let dht_tot = 0;
             let temperature_tot = 0;
             let humidity_tot = 0;
