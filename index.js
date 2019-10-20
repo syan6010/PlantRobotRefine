@@ -269,7 +269,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 41 * * * *', ()=>{
+    schedule.scheduleJob('30 27 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -300,9 +300,9 @@ const  scheduleCronstyle = ()=>{
           
                 })
               })
-            let dht_tot_catch = await dht_tot;
-            let temperature_tot_catch = await c_temperature;
-            let humidity_tot_catch = await c_humidity;
+            let dht_tot_catch =  dht_tot;
+            let temperature_tot_catch =  c_temperature;
+            let humidity_tot_catch = c_humidity;
 
             console.log('1')
             console.log(`dht = ${dht_tot_catch}, h = ${humidity_tot_catch}, t= ${temperature_tot_catch}`)
@@ -365,4 +365,4 @@ const  scheduleCronstyle = ()=>{
 
 
 
-scheduleCronstyle().catch(error => console.log('flag'));;
+scheduleCronstyle();
