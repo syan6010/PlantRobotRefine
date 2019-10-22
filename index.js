@@ -183,6 +183,12 @@ bot.on('message', function (event) {
                       let p_type = snapshot.val();
                       if(mini.includes(p_type)) { 
                         event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=1')
+                        event.reply({
+                          type: 'sticker',
+                          packageId: 1,
+                          stickerId: 1
+                        });
+                        event.reply('多肉植物的冷知識在這裏')
                       } 
                       else if(mini_a.includes(p_type)){
                         event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=5')
