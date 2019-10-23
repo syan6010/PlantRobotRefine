@@ -182,19 +182,19 @@ bot.on('message', function (event) {
                     .then(function(snapshot) {
                       let p_type = snapshot.val();
                       if(mini.includes(p_type)) { 
-                        event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=1');
+                        event.reply('多肉植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=1');
                       } 
                       else if(mini_a.includes(p_type)){
-                        event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=5');
+                        event.reply('芋科室內植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=5');
                       }
                       else if(large.includes(p_type)){
-                        event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=2');
+                        event.reply('香花植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=2');
                       }
                       else if(large_a.includes(p_type)){
-                        event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=1');
+                        event.reply('香草植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=1');
                       }
                       else if(large_b.includes(p_type)){
-                        event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=3');
+                        event.reply('大型室内植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=3');
                       }
                       else {
                         event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=3');
@@ -209,7 +209,7 @@ bot.on('message', function (event) {
                   event.reply(`${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
                   break;
                 default :
-                  event.reply('詳細操作部分請參見使用手冊!!https://gcp.plant.lambda.tw/#');
+                  event.reply('詳細操作部分請參見使用手冊，後續功能會陸續上線敬請期待!!https://gcp.plant.lambda.tw/#');
               }
           }
           if (step > 1) { updateData(lineId, "step", 99) }
