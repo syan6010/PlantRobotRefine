@@ -191,10 +191,10 @@ bot.on('message', function (event) {
                         event.reply('香花植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=2');
                       }
                       else if(large_a.includes(p_type)){
-                        event.reply('香草植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=1');
+                        event.reply('香草植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=3');
                       }
                       else if(large_b.includes(p_type)){
-                        event.reply('大型室内植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=3');
+                        event.reply('大型室内植物請看這裏https://gcp.plant.lambda.tw/todo/?title=&category=4');
                       }
                       else {
                         event.reply('https://gcp.plant.lambda.tw/todo/?title=&category=3');
