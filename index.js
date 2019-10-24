@@ -329,27 +329,27 @@ line_id_ref.once('value')
           let p_type = snapshot.val()
           if(mini.includes(p_type)) { 
             schedule.scheduleJob('30 26 * * * *',()=>{
-              bot.push(each_id, '多肉植物記得澆水嘍');        
+              bot.push(each_id, '多肉植物記得加水嘍');        
             })      
           } 
           else if(mini_a.includes(p_type)){
             schedule.scheduleJob('30 19 * * * *',()=>{
-              bot.push(each_id, '芋科室內植物記得澆水嘍');      
+              bot.push(each_id, '芋科室內植物記得加水嘍');      
             }) 
           }
           else if(large.includes(p_type)){
             schedule.scheduleJob('30 19 * * * *',()=>{
-              bot.push(each_id, '香花植物記得澆水嘍');        
+              bot.push(each_id, '香花植物記得加水嘍');        
             }) 
           }
           else if(large_a.includes(p_type)){
             schedule.scheduleJob('30 19 * * * *',()=>{
-              bot.push(each_id, '香草植物記得澆水嘍');     
+              bot.push(each_id, '香草植物記得加水嘍');     
             }) 
           }
           else if(large_b.includes(p_type)){
             schedule.scheduleJob('30 19 * * * *',()=>{
-              bot.push(each_id, '大型室内植物記得澆水嘍');         
+              bot.push(each_id, '大型室内植物記得加水嘍');         
             }) 
           }
           else {
