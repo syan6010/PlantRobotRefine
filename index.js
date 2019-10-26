@@ -262,7 +262,7 @@ const  scheduleCronstyle = ()=>{
             let humidity_tot = 0;
             let each_id = childSnapshot.key
             let new_plant_ref = firebase.database().ref(`/plant_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
-            let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
+            let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-5}`);
             let push_fun = () => {
               console.log(`dht = ${dht_tot}`)
               if(dht_tot + 40 >= 70){
