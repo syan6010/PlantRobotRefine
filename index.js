@@ -283,24 +283,24 @@ const  scheduleCronstyle = ()=>{
                   console.log(dht_tot);
                   console.log('2');
                   })   
-                  for_add_t_h();
+                  // for_add_t_h();
                   await push_fun();
 
               })
 
-            let for_add_t_h = () => {
-              new_evo_ref.once('value')
-              .then(function(snapshot){
-                snapshot.forEach(function (childSnapshot) {
-                  let c_humidity = childSnapshot.child("humidity").val()
-                  let c_temperature = childSnapshot.child("temperature").val()
-                  humidity_tot += c_humidity
-                  temperature_tot += c_temperature
-                  console.log(humidity_tot)
-                  console.log(temperature_tot)
-                })
-              })
-            }
+            // let for_add_t_h = () => {
+            //   new_evo_ref.once('value')
+            //   .then(function(snapshot){
+            //     snapshot.forEach(function (childSnapshot) {
+            //       let c_humidity = childSnapshot.child("humidity").val()
+            //       let c_temperature = childSnapshot.child("temperature").val()
+            //       humidity_tot += c_humidity
+            //       temperature_tot += c_temperature
+            //       console.log(humidity_tot)
+            //       console.log(temperature_tot)
+            //     })
+            //   })
+            // }
 
 
 
