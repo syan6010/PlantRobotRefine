@@ -253,7 +253,7 @@ let initData = (lineId) => {
 
 
 const  scheduleCronstyle = ()=>{
-    schedule.scheduleJob('30 12 * * * *', ()=>{
+    schedule.scheduleJob('30 58 * * * *', ()=>{
       plant_ref.once('value')
         .then(function(snapshot){
           snapshot.forEach(async function (childSnapshot){
@@ -262,7 +262,7 @@ const  scheduleCronstyle = ()=>{
             let humidity_tot = 0;
             let each_id = childSnapshot.key
             let new_plant_ref = firebase.database().ref(`/plant_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
-            let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-5}`);
+            let new_evo_ref = firebase.database().ref(`/environment_condition/${each_id}/${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`);
             let push_fun = () => {
               console.log(`dht = ${dht_tot}`)
               if(dht_tot + 40 >= 70){
@@ -283,7 +283,6 @@ const  scheduleCronstyle = ()=>{
                   console.log(dht_tot);
                   console.log('2');
                   })   
-                  // for_add_t_h();
                   await push_fun();
 
               })
